@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "mortgage/form",
+	"title": "Mortgage",
+	"category": "widgets",
+	"icon": "calculator",
+	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
+	"textdomain": "mortgage",
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

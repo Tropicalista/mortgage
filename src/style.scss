@@ -1,0 +1,40 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mortgage-form {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+.wp-block-mortgage-form div {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1em;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	small {
+		width: 100%;
+	}
+}
+
+.wp-block-mortgage-form.as-row div {
+	flex-direction: row;
+	align-items: center;
+	label {
+		width: 150px;
+	}
+	button, small {
+		margin-left: 150px;
+	}
+}
+
+.wp-block-mortgage-form.bolded-label {
+	label {
+		font-weight: bold;
+	}
+}
