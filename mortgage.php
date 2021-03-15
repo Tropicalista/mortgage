@@ -1,9 +1,10 @@
 <?php
 /**
  * Plugin Name:     Mortgage
- * Description:     Mortgage calculator block.
+ * Description:     A straightforward and simple responsive mortgage calculator block with a clean flat design, featuring Home Price, Interest Rate, Mortgage Term (years).
  * Version:         0.1.0
  * Author:          Formello
+ * Author URI: 		https://formello.net
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     mortgage
