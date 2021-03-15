@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-15T05:58:44+01:00\n"
+"POT-Creation-Date: 2021-03-15T06:47:43+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: mortgage\n"
@@ -33,31 +33,51 @@ msgstr ""
 msgid "Please fill out the form!"
 msgstr ""
 
-#: build/frontend.js:156
-#: src/frontend.js:69
+#: build/frontend.js:157
+#: src/frontend.js:70
 msgid "Loan amount"
 msgstr ""
 
-#: build/frontend.js:156
-#: src/frontend.js:70
+#: build/frontend.js:157
+#: src/frontend.js:71
 msgid "Interest rate"
 msgstr ""
 
-#: build/frontend.js:156
-#: src/frontend.js:71
+#: build/frontend.js:157
+#: src/frontend.js:72
 msgid "Number of payments"
 msgstr ""
 
-#: build/frontend.js:156
-#: build/frontend.js:191
-#: src/frontend.js:72
-#: src/frontend.js:121
+#: build/frontend.js:157
+#: build/frontend.js:192
+#: src/frontend.js:73
+#: src/frontend.js:122
 msgid "Recurring payment"
 msgstr ""
 
-#: build/frontend.js:156
-#: src/frontend.js:73
+#: build/frontend.js:157
+#: src/frontend.js:74
 msgid "Total paid"
+msgstr ""
+
+#: build/frontend.js:159
+#: src/frontend.js:77
+msgid "Payment"
+msgstr ""
+
+#: build/frontend.js:159
+#: src/frontend.js:78
+msgid "Interest"
+msgstr ""
+
+#: build/frontend.js:159
+#: src/frontend.js:78
+msgid "Principal"
+msgstr ""
+
+#: build/frontend.js:159
+#: src/frontend.js:78
+msgid "Balance"
 msgstr ""
 
 #: build/index.js:320
