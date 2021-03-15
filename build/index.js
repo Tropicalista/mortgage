@@ -310,14 +310,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   label: {
     type: 'object',
     default: {
-      amount: 'Amount',
-      rate: 'Rate',
-      term: 'Term',
-      periods: 'Periods'
+      amount: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Amount', 'mortgage'),
+      rate: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Rate', 'mortgage'),
+      term: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Term', 'mortgage'),
+      frequency: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Payment frequency', 'mortgage')
     }
   },
   defaults: {
@@ -326,7 +329,7 @@ __webpack_require__.r(__webpack_exports__);
       amount: 10000,
       rate: 4,
       term: 10,
-      periods: 12
+      frequency: 12
     }
   },
   placeholder: {
@@ -335,7 +338,7 @@ __webpack_require__.r(__webpack_exports__);
       amount: '',
       rate: '',
       term: '',
-      periods: ''
+      frequency: ''
     }
   },
   help: {
@@ -344,12 +347,12 @@ __webpack_require__.r(__webpack_exports__);
       amount: '',
       rate: '',
       term: '',
-      periods: ''
+      frequency: ''
     }
   },
   button: {
     type: 'string',
-    default: 'Calculate'
+    default: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Calculate', 'mortgage')
   },
   currency: {
     type: 'string',
@@ -387,10 +390,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_editor_scss__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -402,9 +403,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-
 var allowedFormats = ['core/bold', 'core/italic', 'core/link'];
-
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -420,7 +419,7 @@ function Edit(_ref) {
       setAttributes = _ref.setAttributes,
       className = _ref.className;
   var blockProps = Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])();
-  blockProps.className = classnames__WEBPACK_IMPORTED_MODULE_6___default()(blockProps.className, {
+  blockProps.className = classnames__WEBPACK_IMPORTED_MODULE_5___default()(blockProps.className, {
     'as-row': attributes.asRow,
     'bolded-label': attributes.boldedLabel
   });
@@ -492,7 +491,7 @@ function Edit(_ref) {
         })
       });
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["__experimentalNumberControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Amount Default Value', 'mortgage'),
     value: attributes.defaults.amount,
     onChange: function onChange(val) {
@@ -502,7 +501,7 @@ function Edit(_ref) {
         })
       });
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["__experimentalNumberControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Rate Default Value', 'mortgage'),
     value: attributes.defaults.rate,
     onChange: function onChange(val) {
@@ -512,7 +511,7 @@ function Edit(_ref) {
         })
       });
     }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["__experimentalNumberControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Term Default Value', 'mortgage'),
     value: attributes.defaults.term,
     onChange: function onChange(val) {
@@ -623,11 +622,11 @@ function Edit(_ref) {
     keepPlaceholderOnFocus: true
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "label",
-    value: attributes.label.periods,
+    value: attributes.label.frequency,
     onChange: function onChange(val) {
       setAttributes({
         label: _objectSpread(_objectSpread({}, attributes.label), {}, {
-          periods: val
+          frequency: val
         })
       });
     },
@@ -635,17 +634,17 @@ function Edit(_ref) {
     allowedFormats: [],
     keepPlaceholderOnFocus: true
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("select", {
-    name: "periods",
+    name: "frequency",
     disabled: true
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("option", {
     value: "12"
   }, "Monthly")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "small",
-    value: attributes.help.periods,
+    value: attributes.help.frequency,
     onChange: function onChange(val) {
       setAttributes({
         help: _objectSpread(_objectSpread({}, attributes.help), {}, {
-          periods: val
+          frequency: val
         })
       });
     },
@@ -654,17 +653,6 @@ function Edit(_ref) {
     keepPlaceholderOnFocus: true
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("button", null, attributes.button)));
 }
-
-/***/ }),
-
-/***/ "./src/editor.scss":
-/*!*************************!*\
-  !*** ./src/editor.scss ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 

@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 //import { pmt, ppmt, ipmt, fv } from 'financial'
+var __ = wp.i18n.__;
 var result = document.createElement('p');
 var tblDiv = document.createElement('div');
 document.addEventListener('submit', handleSubmitEvents, true); // useCapture=false to ensure we bubble upwards (and thus can cancel propagation)
@@ -112,7 +113,7 @@ function handleSubmitEvents(e) {
   if (formEl.checkValidity()) {
     calculate(formEl);
   } else {
-    response('Please fill out the form!', 'error', formEl);
+    response(__('Please fill out the form!', 'mortgage'), 'error', formEl);
   }
 }
 
@@ -151,7 +152,7 @@ function amort(balance, interestRate, terms, frequency, formEl) {
   var payment = balance * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -terms * frequency))); //var payment = pmt( interestRate/frequency, frequency*terms, balance ) * -1;
   //begin building the return string for the display of the amort table
 
-  var resultTable = "Loan amount: " + settings.currency + balance.toFixed(2) + "<br />" + "Interest rate: " + (interestRate * 100).toFixed(2) + "%<br />" + "Number of payments: " + terms * frequency + "<br />" + "Recurring payment: " + settings.currency + payment.toFixed(2) + "<br />" + "Total paid: " + settings.currency + (payment * terms * frequency).toFixed(2) + "<br /><br />"; //add header row for table to return string
+  var resultTable = __('Loan amount', 'mortgage') + ": " + settings.currency + balance.toFixed(2) + "<br />" + __('Interest rate', 'mortgage') + ": " + (interestRate * 100).toFixed(2) + "%<br />" + __('Number of payments', 'mortgage') + ": " + terms * frequency + "<br />" + __('Recurring payment', 'mortgage') + ": " + settings.currency + payment.toFixed(2) + "<br />" + __('Total paid', 'mortgage') + ": " + settings.currency + (payment * terms * frequency).toFixed(2) + "<br /><br />"; //add header row for table to return string
 
   resultTable += "<table border='1'><tr><th>Month #</th><th>Payment</th>" + "<th>Interest</th><th>Principal</th><th>Balance</th>";
   var totalPayments = terms * frequency;
@@ -186,7 +187,7 @@ function amort(balance, interestRate, terms, frequency, formEl) {
 
 
   resultTable += "</table>";
-  response('Recurring payments: ' + settings.currency + payment.toFixed(2), 'success', formEl);
+  response(__('Recurring payment', 'mortgage') + ": " + settings.currency + payment.toFixed(2), 'success', formEl);
   tblDiv.innerHTML = resultTable;
 }
 

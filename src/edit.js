@@ -1,4 +1,3 @@
-
 import { __ } from '@wordpress/i18n';
 
 import { 
@@ -15,14 +14,12 @@ import {
 
 import {
 	TextControl,
-	NumberControl,
+	__experimentalNumberControl as NumberControl,
 	ToggleControl,
 	PanelRow,
 	PanelBody,
 	TextareaControl,
 } from '@wordpress/components';
-
-import './editor.scss';
 
 const allowedFormats = [
 	'core/bold',
@@ -30,7 +27,6 @@ const allowedFormats = [
 	'core/link',
 ]
 
-import './editor.scss';
 import classnames from 'classnames';
 
 /**
@@ -51,7 +47,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 	return (
 		<div { ...blockProps }>
 			<InspectorControls>
-				<PanelBody title="Form Options" initialOpen={ true }>
+				<PanelBody title={ __( 'Form Options', 'mortgage' ) } initialOpen={ true }>
 					<TextControl
 						label={ __( 'Button text', 'mortgage' ) }
 						value={ attributes.button }
@@ -73,7 +69,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
 					/>
 				</PanelBody>
-				<PanelBody title="Fields Options" initialOpen={ false }>
+				<PanelBody title={ __( 'Fields Options', 'mortgage' ) } initialOpen={ false }>
 					<TextControl
 						label={ __( 'Amount Placeholder', 'mortgage' ) }
 						value={ attributes.placeholder.amount }
@@ -178,22 +174,22 @@ export default function Edit( { attributes, setAttributes, className } ) {
 			<div>
 				<RichText
 					tagName="label"
-					value={ attributes.label.periods }
+					value={ attributes.label.frequency }
 					onChange={ ( val ) => { 
-					    setAttributes({ label: { ...attributes.label, periods: val } });
+					    setAttributes({ label: { ...attributes.label, frequency: val } });
 					}}
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
 					keepPlaceholderOnFocus={ true }
 				/>
-				<select name="periods" disabled>
+				<select name="frequency" disabled>
 					<option value="12">Monthly</option>
 				</select>
 				<RichText
 					tagName="small"
-					value={ attributes.help.periods }
+					value={ attributes.help.frequency }
 					onChange={ ( val ) => { 
-					    setAttributes({ help: { ...attributes.help, periods: val } });
+					    setAttributes({ help: { ...attributes.help, frequency: val } });
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }

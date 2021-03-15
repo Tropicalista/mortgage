@@ -1,11 +1,12 @@
+import { __ } from '@wordpress/i18n';
 export default {
 	label: {
 		type: 'object',
 		default: {
-			amount: 'Amount',
-			rate: 'Rate',
-			term: 'Term',
-			periods: 'Periods'			
+			amount: __( 'Amount', 'mortgage' ),
+			rate: __( 'Rate', 'mortgage' ),
+			term: __( 'Term', 'mortgage' ),
+			frequency: __( 'Payment frequency', 'mortgage' )			
 		},
 	},
 	defaults: {
@@ -14,7 +15,7 @@ export default {
 			amount: 10000,
 			rate: 4,
 			term: 10,
-			periods: 12			
+			frequency: 12			
 		},
 	},
 	placeholder: {
@@ -23,7 +24,7 @@ export default {
 			amount: '',
 			rate: '',
 			term: '',
-			periods: ''			
+			frequency: ''			
 		},
 	},
 	help: {
@@ -32,12 +33,12 @@ export default {
 			amount: '',
 			rate: '',
 			term: '',				
-			periods: ''			
+			frequency: ''			
 		},
 	},
 	button: { 
 		type: 'string',
-		default: 'Calculate'
+		default: __( 'Calculate', 'mortgage' )
 	},
 	currency: { 
 		type: 'string',

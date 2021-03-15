@@ -37,18 +37,11 @@ function create_block_mortgage_block_init() {
 	wp_register_script(
 		'mortgage-block-frontend',
 		plugins_url( 'build/frontend.js', __FILE__ ),
-		[],
+		array( 'wp-i18n' ),
 		$script_asset['version']
 	);
-	wp_set_script_translations( 'mortgage-block-editor', 'mortgage' );
-
-	$editor_css = 'build/index.css';
-	wp_register_style(
-		'mortgage-block-editor',
-		plugins_url( $editor_css, __FILE__ ),
-		array(),
-		filemtime( "$dir/$editor_css" )
-	);
+	wp_set_script_translations( 'mortgage-block-editor', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
+	wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
 
 	$style_css = 'build/style-index.css';
 	wp_register_style(
@@ -62,7 +55,6 @@ function create_block_mortgage_block_init() {
 		'mortgage/form',
 		array(
 			'editor_script' => 'mortgage-block-editor',
-			'editor_style'  => 'mortgage-block-editor',
 			'style'         => 'mortgage-block',
 			'render_callback' => function( $attrs, $content ) {
 				wp_enqueue_script( 'mortgage-block-frontend' );

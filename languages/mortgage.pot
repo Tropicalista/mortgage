@@ -1,6 +1,5 @@
-# Copyright (C) 2021 The WordPress Contributors
+# Copyright (C) 2021 Formello
 # This file is distributed under the same license as the Mortgage plugin.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Mortgage 0.1.0\n"
@@ -10,69 +9,163 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-15 04:22+0100\n"
+"POT-Creation-Date: 2021-03-15T05:39:47+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: mortgage\n"
 
 #. Plugin Name of the plugin
-#: build/index.js:690 src/index.js:49
+#: build/index.js:726
+#: src/index.js:49
 msgid "Mortgage"
 msgstr ""
 
 #. Description of the plugin
-msgid "Example block written with ESNext standard and JSX support – build step required."
+msgid "Mortgage calculator block."
 msgstr ""
 
 #. Author of the plugin
-msgid "The WordPress Contributors"
+msgid "Formello"
 msgstr ""
 
-#: build/index.js:422 src/edit.js:55
-msgid "Principal Placeholder"
+#: build/frontend.js:116
+#: src/frontend.js:25
+msgid "Please fill out the form!"
 msgstr ""
 
-#: build/index.js:432 src/edit.js:60
-msgid "Rate Placeholder"
+#: build/frontend.js:155
+#: src/frontend.js:68
+msgid "Loan amount"
 msgstr ""
 
-#: build/index.js:442 src/edit.js:65
-msgid "Term Placeholder"
+#: build/frontend.js:155
+#: src/frontend.js:69
+msgid "Interest rate"
 msgstr ""
 
-#: build/index.js:452 src/edit.js:70
-msgid "Button text"
+#: build/frontend.js:155
+#: src/frontend.js:70
+msgid "Number of payments"
 msgstr ""
 
-#: build/index.js:460 src/edit.js:75
-msgid "Currency symbol"
+#: build/frontend.js:155
+#: build/frontend.js:190
+#: src/frontend.js:71
+#: src/frontend.js:120
+msgid "Recurring payment"
 msgstr ""
 
-#: build/index.js:468 src/edit.js:80
-msgid "Display label on side"
+#: build/frontend.js:155
+#: src/frontend.js:72
+msgid "Total paid"
 msgstr ""
 
-#: build/index.js:476 src/edit.js:85
-msgid "Bolded label"
+#: build/index.js:320
+#: src/attributes.js:6
+msgid "Amount"
 msgstr ""
 
-#: build/index.js:493 build/index.js:586 src/edit.js:98 src/edit.js:167
-msgid "Enter label..."
-msgstr ""
-
-#: build/index.js:511 build/index.js:542 build/index.js:573 build/index.js:604
-#: src/edit.js:109 src/edit.js:132 src/edit.js:155 src/edit.js:180
-msgid "Enter help message..."
-msgstr ""
-
-#: build/index.js:524 src/edit.js:121
+#: build/index.js:321
+#: build/index.js:567
+#: src/attributes.js:7
+#: src/edit.js:135
 msgid "Rate"
 msgstr ""
 
-#: build/index.js:555 src/edit.js:144
+#: build/index.js:322
+#: build/index.js:600
+#: src/attributes.js:8
+#: src/edit.js:158
 msgid "Term"
 msgstr ""
 
-#: build/index.js:696 src/index.js:55
+#: build/index.js:323
+#: src/attributes.js:9
+msgid "Payment frequency"
+msgstr ""
+
+#: build/index.js:355
+#: src/attributes.js:41
+msgid "Calculate"
+msgstr ""
+
+#: build/index.js:430
+#: src/edit.js:52
+msgid "Button text"
+msgstr ""
+
+#: build/index.js:438
+#: src/edit.js:57
+msgid "Currency symbol"
+msgstr ""
+
+#: build/index.js:446
+#: src/edit.js:62
+msgid "Display label on side"
+msgstr ""
+
+#: build/index.js:454
+#: src/edit.js:67
+msgid "Bolded label"
+msgstr ""
+
+#: build/index.js:465
+#: src/edit.js:74
+msgid "Amount Placeholder"
+msgstr ""
+
+#: build/index.js:475
+#: src/edit.js:79
+msgid "Rate Placeholder"
+msgstr ""
+
+#: build/index.js:485
+#: src/edit.js:84
+msgid "Term Placeholder"
+msgstr ""
+
+#: build/index.js:495
+#: src/edit.js:89
+msgid "Amount Default Value"
+msgstr ""
+
+#: build/index.js:505
+#: src/edit.js:94
+msgid "Rate Default Value"
+msgstr ""
+
+#: build/index.js:515
+#: src/edit.js:99
+msgid "Term Default Value"
+msgstr ""
+
+#: build/index.js:534
+#: build/index.js:633
+#: src/edit.js:112
+#: src/edit.js:181
+msgid "Enter label..."
+msgstr ""
+
+#: build/index.js:554
+#: build/index.js:587
+#: build/index.js:620
+#: build/index.js:651
+#: src/edit.js:123
+#: src/edit.js:146
+#: src/edit.js:169
+#: src/edit.js:194
+msgid "Enter help message..."
+msgstr ""
+
+#: build/index.js:732
+#: src/index.js:55
 msgid "A block to generate a very simple and easy to use mortgage calculator form."
+msgstr ""
+
+#: src/edit.js:50
+msgid "Form Options"
+msgstr ""
+
+#: src/edit.js:72
+msgid "Fields Options"
 msgstr ""
