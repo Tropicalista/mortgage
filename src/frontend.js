@@ -30,8 +30,10 @@ function handleSubmitEvents (e) {
 function response( message, type, elm ){
 	result.innerHTML = message;
 	result.className = 'wp-block-mortgage-result ' + type;
-	if( 'wp-block-column' === elm.parentNode.className ){
-		elm = elm.parentNode.parentNode.parentNode
+	tblDiv.className = 'wp-block-mortgage-table ';
+	elm = elm.parentNode;
+	if( 'wp-block-columns' === elm.parentNode.className ){
+		elm = elm.parentNode.parentNode;
 	}
 	elm.appendChild( result )
 	elm.appendChild( tblDiv )
@@ -55,7 +57,7 @@ function calculate( formEl ){
 */
 function amort( balance, interestRate, terms, frequency, formEl )
 {
-	var settings = formEl.dataset
+	var currency = '<small>' + formEl.dataset.currency + '</small>';
 
     //Calculate the per month interest rate
 	var monthlyRate = interestRate/frequency;
@@ -65,15 +67,15 @@ function amort( balance, interestRate, terms, frequency, formEl )
     //var payment = pmt( interestRate/frequency, frequency*terms, balance ) * -1;
 
 	//begin building the return string for the display of the amort table
-    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + settings.currency + balance.toFixed(2) +  "<br />" + 
+    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + currency + balance.toFixed(2) +  "<br />" + 
         __( 'Interest rate' , 'mortgage' ) + ": " + (interestRate*100).toFixed(2) +  "%<br />" +
         __( 'Number of payments' , 'mortgage' ) + ": " + terms*frequency + "<br />" +
-        __( 'Recurring payment' , 'mortgage' ) + ": " + settings.currency + payment.toFixed(2) + "<br />" +
-        __( 'Total paid' , 'mortgage' ) + ": " + settings.currency + (payment * terms* frequency).toFixed(2) + "<br /><br />";
+        __( 'Recurring payment' , 'mortgage' ) + ": " + currency + payment.toFixed(2) + "<br />" +
+        __( 'Total paid' , 'mortgage' ) + ": " + currency + (payment * terms* frequency).toFixed(2) + "<br /><br />";
         
     //add header row for table to return string
-	resultTable += "<table border='1'><tr><th>Month #</th><th>Payment</th>" + 
-        "<th>Interest</th><th>Principal</th><th>Balance</th>";
+	resultTable += "<table border='1'><tr><th>#</th><th>" + __( 'Payment', 'mortgage' ) + "</th>" + 
+        "<th>" + __( 'Interest', 'mortgage' ) + "</th><th>" + __( 'Principal', 'mortgage' ) + "</th><th>" + __( 'Balance', 'mortgage' ) + "</th>";
     
     var totalPayments = terms*frequency;
 
@@ -100,14 +102,14 @@ function amort( balance, interestRate, terms, frequency, formEl )
 		//display the month number in col 1 using the loop count variable
 		resultTable += "<td>" + (count + 1) + "</td>";
 		
-		resultTable += "<td>" + settings.currency + payment.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + payment.toFixed(2) + "</td>";
 
-		resultTable += "<td>" + settings.currency + interest.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + interest.toFixed(2) + "</td>";
 		
-		resultTable += "<td>" + settings.currency + monthlyPrincipal.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + monthlyPrincipal.toFixed(2) + "</td>";
 		
 		//code for displaying in loop balance
-		resultTable += "<td>" + settings.currency + balance.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + balance.toFixed(2) + "</td>";
 		
 		//end the table row on each iteration of the loop	
 		resultTable += "</tr>";
@@ -117,7 +119,7 @@ function amort( balance, interestRate, terms, frequency, formEl )
 	//Final piece added to return string before returning it - closes the table
     resultTable += "</table>";
 
-	response( __( 'Recurring payment' , 'mortgage' ) + ": " + settings.currency + payment.toFixed(2), 'success', formEl );
+	response( __( 'Recurring payment' , 'mortgage' ) + ": " + currency + payment.toFixed(2), 'success', formEl );
 	tblDiv.innerHTML = resultTable;
 
 }

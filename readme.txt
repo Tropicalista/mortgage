@@ -1,5 +1,5 @@
 === Mortgage ===
-Contributors:      Mortgage calculator block
+Contributors:      Formello
 Tags:              mortgage block, calculator block, mortgage calculator
 Requires at least: 5.6.0
 Tested up to:      5.6.0

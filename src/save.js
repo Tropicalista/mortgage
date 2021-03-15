@@ -56,11 +56,11 @@ export default function save( { attributes, className } ) {
 				}
 			</div>
 			<div>
-				<RichText.Content tagName="label" value={ attributes.label.periods } />
+				<RichText.Content tagName="label" value={ attributes.label.frequency } />
 				<select name="frequency">
-					<option value="12">Monthly</option>
-					<option value="4">Quarterly</option>
-					<option value="2">Semi-annually</option>
+					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
+					<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
+					<option value="2">{ __( 'Semi-annually', 'mortgage' ) }</option>
 				</select>
 				{
 					attributes.help.frequency &&

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-03-15T05:39:47+01:00\n"
+"POT-Creation-Date: 2021-03-15T05:58:44+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: mortgage\n"
@@ -33,30 +33,30 @@ msgstr ""
 msgid "Please fill out the form!"
 msgstr ""
 
-#: build/frontend.js:155
-#: src/frontend.js:68
+#: build/frontend.js:156
+#: src/frontend.js:69
 msgid "Loan amount"
 msgstr ""
 
-#: build/frontend.js:155
-#: src/frontend.js:69
+#: build/frontend.js:156
+#: src/frontend.js:70
 msgid "Interest rate"
 msgstr ""
 
-#: build/frontend.js:155
-#: src/frontend.js:70
+#: build/frontend.js:156
+#: src/frontend.js:71
 msgid "Number of payments"
 msgstr ""
 
-#: build/frontend.js:155
-#: build/frontend.js:190
-#: src/frontend.js:71
-#: src/frontend.js:120
+#: build/frontend.js:156
+#: build/frontend.js:191
+#: src/frontend.js:72
+#: src/frontend.js:121
 msgid "Recurring payment"
 msgstr ""
 
-#: build/frontend.js:155
-#: src/frontend.js:72
+#: build/frontend.js:156
+#: src/frontend.js:73
 msgid "Total paid"
 msgstr ""
 
@@ -89,6 +89,11 @@ msgstr ""
 msgid "Calculate"
 msgstr ""
 
+#: build/index.js:427
+#: src/edit.js:50
+msgid "Form Options"
+msgstr ""
+
 #: build/index.js:430
 #: src/edit.js:52
 msgid "Button text"
@@ -107,6 +112,11 @@ msgstr ""
 #: build/index.js:454
 #: src/edit.js:67
 msgid "Bolded label"
+msgstr ""
+
+#: build/index.js:462
+#: src/edit.js:72
+msgid "Fields Options"
 msgstr ""
 
 #: build/index.js:465
@@ -157,15 +167,24 @@ msgstr ""
 msgid "Enter help message..."
 msgstr ""
 
+#: build/index.js:641
+#: build/index.js:872
+#: src/edit.js:186
+#: src/save.js:61
+msgid "Monthly"
+msgstr ""
+
 #: build/index.js:732
 #: src/index.js:55
 msgid "A block to generate a very simple and easy to use mortgage calculator form."
 msgstr ""
 
-#: src/edit.js:50
-msgid "Form Options"
+#: build/index.js:874
+#: src/save.js:62
+msgid "Quarterly"
 msgstr ""
 
-#: src/edit.js:72
-msgid "Fields Options"
+#: build/index.js:876
+#: src/save.js:63
+msgid "Semi-annually"
 msgstr ""

@@ -183,7 +183,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					keepPlaceholderOnFocus={ true }
 				/>
 				<select name="frequency" disabled>
-					<option value="12">Monthly</option>
+					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
 				</select>
 				<RichText
 					tagName="small"
