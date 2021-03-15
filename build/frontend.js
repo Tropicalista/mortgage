@@ -154,7 +154,7 @@ function amort(balance, interestRate, terms, frequency, formEl) {
   var payment = balance * (monthlyRate / (1 - Math.pow(1 + monthlyRate, -terms * frequency))); //var payment = pmt( interestRate/frequency, frequency*terms, balance ) * -1;
   //begin building the return string for the display of the amort table
 
-  var resultTable = __('Loan amount', 'mortgage') + ": " + currency + balance.toFixed(2) + "<br />" + __('Interest rate', 'mortgage') + ": " + (interestRate * 100).toFixed(2) + "%<br />" + __('Number of payments', 'mortgage') + ": " + terms * frequency + "<br />" + __('Recurring payment', 'mortgage') + ": " + currency + payment.toFixed(2) + "<br />" + __('Total paid', 'mortgage') + ": " + currency + (payment * terms * frequency).toFixed(2) + "<br /><br />"; //add header row for table to return string
+  var resultTable = __('Loan amount', 'mortgage') + ": " + currency + balance + "<br />" + __('Interest rate', 'mortgage') + ": " + (interestRate * 100).toFixed(2) + "%<br />" + __('Number of payments', 'mortgage') + ": " + terms * frequency + "<br />" + __('Recurring payment', 'mortgage') + ": " + currency + payment.toFixed(2) + "<br />" + __('Total paid', 'mortgage') + ": " + currency + (payment * terms * frequency).toFixed(2) + "<br /><br />"; //add header row for table to return string
 
   resultTable += "<table border='1'><tr><th>#</th><th>" + __('Payment', 'mortgage') + "</th>" + "<th>" + __('Interest', 'mortgage') + "</th><th>" + __('Principal', 'mortgage') + "</th><th>" + __('Balance', 'mortgage') + "</th>";
   var totalPayments = terms * frequency;
@@ -189,7 +189,7 @@ function amort(balance, interestRate, terms, frequency, formEl) {
 
 
   resultTable += "</table>";
-  response(__('Recurring payment', 'mortgage') + ": " + currency + payment.toFixed(2), 'success', formEl);
+  response(__('Recurring payment', 'mortgage') + ": " + currency + '<b>' + payment.toFixed(2) + '</b>', 'success', formEl);
   tblDiv.innerHTML = resultTable;
 }
 

@@ -67,7 +67,7 @@ function amort( balance, interestRate, terms, frequency, formEl )
     //var payment = pmt( interestRate/frequency, frequency*terms, balance ) * -1;
 
 	//begin building the return string for the display of the amort table
-    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + currency + balance.toFixed(2) +  "<br />" + 
+    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + currency + balance +  "<br />" + 
         __( 'Interest rate' , 'mortgage' ) + ": " + (interestRate*100).toFixed(2) +  "%<br />" +
         __( 'Number of payments' , 'mortgage' ) + ": " + terms*frequency + "<br />" +
         __( 'Recurring payment' , 'mortgage' ) + ": " + currency + payment.toFixed(2) + "<br />" +
@@ -119,7 +119,7 @@ function amort( balance, interestRate, terms, frequency, formEl )
 	//Final piece added to return string before returning it - closes the table
     resultTable += "</table>";
 
-	response( __( 'Recurring payment' , 'mortgage' ) + ": " + currency + payment.toFixed(2), 'success', formEl );
+	response( __( 'Recurring payment' , 'mortgage' ) + ": " + currency + '<b>' + payment.toFixed(2) + '</b>', 'success', formEl );
 	tblDiv.innerHTML = resultTable;
 
 }
