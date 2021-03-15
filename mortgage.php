@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:     Mortgage
- * Description:     Example block written with ESNext standard and JSX support – build step required.
+ * Description:     Mortgage calculator block.
  * Version:         0.1.0
- * Author:          The WordPress Contributors
+ * Author:          Formello
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     mortgage
@@ -34,6 +34,12 @@ function create_block_mortgage_block_init() {
 		$script_asset['dependencies'],
 		$script_asset['version']
 	);
+	wp_register_script(
+		'mortgage-block-frontend',
+		plugins_url( 'build/frontend.js', __FILE__ ),
+		[],
+		$script_asset['version']
+	);
 	wp_set_script_translations( 'mortgage-block-editor', 'mortgage' );
 
 	$editor_css = 'build/index.css';
@@ -53,11 +59,15 @@ function create_block_mortgage_block_init() {
 	);
 
 	register_block_type(
-		'mortgage/mortgage',
+		'mortgage/form',
 		array(
 			'editor_script' => 'mortgage-block-editor',
 			'editor_style'  => 'mortgage-block-editor',
 			'style'         => 'mortgage-block',
+			'render_callback' => function( $attrs, $content ) {
+				wp_enqueue_script( 'mortgage-block-frontend' );
+				return $content;
+			}
 		)
 	);
 }

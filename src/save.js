@@ -28,20 +28,20 @@ export default function save( { attributes, className } ) {
 		'as-row': attributes.asRow,
 		'bolded-label': attributes.boldedLabel
 	} );
-console.log(blockProps)
+
 	return (
-		<form { ...blockProps } noValidate>
+		<form { ...blockProps } noValidate data-currency={ attributes.currency }>
 			<div>
-				<RichText.Content tagName="label" value={ attributes.label.principal } />
-				<input type="number" name="principal" min="0" required />
+				<RichText.Content tagName="label" value={ attributes.label.amount } />
+				<input type="number" name="amount" min="0" required value={ attributes.defaults.amount } />
 				{
-					attributes.help.principal &&
-					<RichText.Content tagName="small" value={ attributes.help.principal } />
+					attributes.help.amount &&
+					<RichText.Content tagName="small" value={ attributes.help.amount } />
 				}
 			</div>
 			<div>
 				<RichText.Content tagName="label" value={ attributes.label.rate } />
-				<input type="number" name="rate" min="0" step="0.01" required />
+				<input type="number" name="rate" min="0" step="0.01" required value={ attributes.defaults.rate } />
 				{
 					attributes.help.rate &&
 					<RichText.Content tagName="small" value={ attributes.help.rate } />
@@ -49,14 +49,14 @@ console.log(blockProps)
 			</div>
 			<div>
 				<RichText.Content tagName="label" value={ attributes.label.term } />
-				<input type="number" name="term" min="0" required />
+				<input type="number" name="term" min="0" required value={ attributes.defaults.term } />
 				{
 					attributes.help.term &&
 					<RichText.Content tagName="small" value={ attributes.help.term } />
 				}
 			</div>
 			<div>
-				<RichText.Content tagName="label" value={ attributes.label.frequency } />
+				<RichText.Content tagName="label" value={ attributes.label.periods } />
 				<select name="frequency">
 					<option value="12">Monthly</option>
 					<option value="4">Quarterly</option>

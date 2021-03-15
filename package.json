@@ -11,6 +11,7 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
+		"start:custom": "wp-scripts start src/index.js src/frontend.js",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
@@ -19,6 +20,7 @@
 		"@wordpress/i18n": "^3.18.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^13.0.3"
+		"@wordpress/scripts": "^13.0.3",
+		"financial": "^0.1.3"
 	}
 }

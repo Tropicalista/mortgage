@@ -2,16 +2,25 @@ export default {
 	label: {
 		type: 'object',
 		default: {
-			principal: 'principal',
-			rate: 'rate',
-			term: 'term',
-			periods: 'periods'			
+			amount: 'Amount',
+			rate: 'Rate',
+			term: 'Term',
+			periods: 'Periods'			
+		},
+	},
+	defaults: {
+		type: 'object',
+		default: {
+			amount: 10000,
+			rate: 4,
+			term: 10,
+			periods: 12			
 		},
 	},
 	placeholder: {
 		type: 'object',
 		default: {
-			principal: '',
+			amount: '',
 			rate: '',
 			term: '',
 			periods: ''			
@@ -20,7 +29,7 @@ export default {
 	help: {
 		type: 'object',
 		default: {
-			principal: '',
+			amount: '',
 			rate: '',
 			term: '',				
 			periods: ''			

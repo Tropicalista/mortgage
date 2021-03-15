@@ -1,6 +1,6 @@
 === Mortgage ===
-Contributors:      The WordPress Contributors
-Tags:              block
+Contributors:      Mortgage calculator block
+Tags:              mortgage block, calculator block, mortgage calculator
 Requires at least: 5.6.0
 Tested up to:      5.6.0
 Stable tag:        0.1.0

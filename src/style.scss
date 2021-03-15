@@ -6,7 +6,6 @@
  */
 
 .wp-block-mortgage-form {
-	padding: 1em;
 	display: flex;
 	flex-direction: column;
 }
@@ -36,5 +35,21 @@
 .wp-block-mortgage-form.bolded-label {
 	label {
 		font-weight: bold;
+	}
+}
+
+.wp-block-mortgage-result {
+	padding: .75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	&.success {
+		background-color: #dff0d8;
+		border-color: #d0e9c6;
+		color: #3c763d;
+	}
+	&.error {
+		background-color: #fcf8e3;
+		border-color: #faf2cc;
+		color: #8a6d3b;  
 	}
 }

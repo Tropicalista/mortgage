@@ -314,16 +314,25 @@ __webpack_require__.r(__webpack_exports__);
   label: {
     type: 'object',
     default: {
-      principal: 'principal',
-      rate: 'rate',
-      term: 'term',
-      periods: 'periods'
+      amount: 'Amount',
+      rate: 'Rate',
+      term: 'Term',
+      periods: 'Periods'
+    }
+  },
+  defaults: {
+    type: 'object',
+    default: {
+      amount: 10000,
+      rate: 4,
+      term: 10,
+      periods: 12
     }
   },
   placeholder: {
     type: 'object',
     default: {
-      principal: '',
+      amount: '',
       rate: '',
       term: '',
       periods: ''
@@ -332,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
   help: {
     type: 'object',
     default: {
-      principal: '',
+      amount: '',
       rate: '',
       term: '',
       periods: ''
@@ -416,39 +425,9 @@ function Edit(_ref) {
     'bolded-label': attributes.boldedLabel
   });
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", blockProps, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["PanelBody"], {
-    title: "Fields Options",
+    title: "Form Options",
     initialOpen: true
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Principal Placeholder', 'mortgage'),
-    value: attributes.placeholder.principal,
-    onChange: function onChange(val, index) {
-      return setAttributes({
-        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
-          principal: val
-        })
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Rate Placeholder', 'mortgage'),
-    value: attributes.placeholder.rate,
-    onChange: function onChange(val, index) {
-      return setAttributes({
-        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
-          rate: val
-        })
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Term Placeholder', 'mortgage'),
-    value: attributes.placeholder.term,
-    onChange: function onChange(val, index) {
-      return setAttributes({
-        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
-          term: val
-        })
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Button text', 'mortgage'),
     value: attributes.button,
     onChange: function onChange(val) {
@@ -480,13 +459,76 @@ function Edit(_ref) {
         boldedLabel: val
       });
     }
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["PanelBody"], {
+    title: "Fields Options",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Amount Placeholder', 'mortgage'),
+    value: attributes.placeholder.amount,
+    onChange: function onChange(val) {
+      return setAttributes({
+        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
+          amount: val
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Rate Placeholder', 'mortgage'),
+    value: attributes.placeholder.rate,
+    onChange: function onChange(val) {
+      return setAttributes({
+        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
+          rate: val
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Term Placeholder', 'mortgage'),
+    value: attributes.placeholder.term,
+    onChange: function onChange(val) {
+      return setAttributes({
+        placeholder: _objectSpread(_objectSpread({}, attributes.placeholder), {}, {
+          term: val
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Amount Default Value', 'mortgage'),
+    value: attributes.defaults.amount,
+    onChange: function onChange(val) {
+      return setAttributes({
+        defaults: _objectSpread(_objectSpread({}, attributes.defaults), {}, {
+          amount: val
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Rate Default Value', 'mortgage'),
+    value: attributes.defaults.rate,
+    onChange: function onChange(val) {
+      return setAttributes({
+        defaults: _objectSpread(_objectSpread({}, attributes.defaults), {}, {
+          rate: val
+        })
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["NumberControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Term Default Value', 'mortgage'),
+    value: attributes.defaults.term,
+    onChange: function onChange(val) {
+      return setAttributes({
+        defaults: _objectSpread(_objectSpread({}, attributes.defaults), {}, {
+          term: val
+        })
+      });
+    }
   }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "label",
-    value: attributes.label.principal,
+    value: attributes.label.amount,
     onChange: function onChange(val) {
       setAttributes({
         label: _objectSpread(_objectSpread({}, attributes.label), {}, {
-          principal: val
+          amount: val
         })
       });
     },
@@ -497,14 +539,16 @@ function Edit(_ref) {
     type: "number",
     name: "",
     readOnly: true,
-    placeholder: attributes.placeholder.principal
+    placeholder: attributes.placeholder.amount,
+    disabled: true,
+    value: attributes.defaults.amount
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "small",
-    value: attributes.help.principal,
+    value: attributes.help.amount,
     onChange: function onChange(val) {
       setAttributes({
         help: _objectSpread(_objectSpread({}, attributes.help), {}, {
-          principal: val
+          amount: val
         })
       });
     },
@@ -528,7 +572,9 @@ function Edit(_ref) {
     type: "number",
     name: "",
     readOnly: true,
-    placeholder: attributes.placeholder.rate
+    placeholder: attributes.placeholder.rate,
+    disabled: true,
+    value: attributes.defaults.rate
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "small",
     value: attributes.help.rate,
@@ -559,7 +605,9 @@ function Edit(_ref) {
     type: "number",
     name: "",
     readOnly: true,
-    placeholder: attributes.placeholder.term
+    placeholder: attributes.placeholder.term,
+    disabled: true,
+    value: attributes.defaults.term
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
     tagName: "small",
     value: attributes.help.term,
@@ -786,20 +834,21 @@ function save(_ref) {
     'as-row': attributes.asRow,
     'bolded-label': attributes.boldedLabel
   });
-  console.log(blockProps);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("form", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, blockProps, {
-    noValidate: true
+    noValidate: true,
+    "data-currency": attributes.currency
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "label",
-    value: attributes.label.principal
+    value: attributes.label.amount
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", {
     type: "number",
-    name: "principal",
+    name: "amount",
     min: "0",
-    required: true
-  }), attributes.help.principal && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
+    required: true,
+    value: attributes.defaults.amount
+  }), attributes.help.amount && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "small",
-    value: attributes.help.principal
+    value: attributes.help.amount
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "label",
     value: attributes.label.rate
@@ -808,7 +857,8 @@ function save(_ref) {
     name: "rate",
     min: "0",
     step: "0.01",
-    required: true
+    required: true,
+    value: attributes.defaults.rate
   }), attributes.help.rate && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "small",
     value: attributes.help.rate
@@ -819,13 +869,14 @@ function save(_ref) {
     type: "number",
     name: "term",
     min: "0",
-    required: true
+    required: true,
+    value: attributes.defaults.term
   }), attributes.help.term && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "small",
     value: attributes.help.term
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"].Content, {
     tagName: "label",
-    value: attributes.label.frequency
+    value: attributes.label.periods
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("select", {
     name: "frequency"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("option", {
