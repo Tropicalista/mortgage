@@ -1,10 +1,10 @@
 === Mortgage Calculator ===
 Contributors:      Formello, Tropicalista
 Donate link: 	   https://formello.net
-Tags:              mortgage block, calculator block, mortgage calculator
+Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, mortgage block
 Requires at least: 5.6.0
 Tested up to:      5.6.0
-Stable tag:        0.1.1
+Stable tag:        0.1.2
 Requires PHP:      7.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -31,6 +31,10 @@ With this block you can create a form to calculate a loan mortgage in less than 
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.1.2 =
+* Better formatting number based on user locale
+* Table 100% width in any case
 
 = 0.1.0 =
 * Release

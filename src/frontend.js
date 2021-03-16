@@ -3,6 +3,7 @@ const { __ } = wp.i18n;
 
 const result = document.createElement( 'p' );
 const tblDiv = document.createElement('div');
+var userLang = navigator.language || navigator.userLanguage; 
 
 
 document.addEventListener('submit', handleSubmitEvents, true) // useCapture=false to ensure we bubble upwards (and thus can cancel propagation)
@@ -67,11 +68,11 @@ function amort( balance, interestRate, terms, frequency, formEl )
     //var payment = pmt( interestRate/frequency, frequency*terms, balance ) * -1;
 
 	//begin building the return string for the display of the amort table
-    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + currency + balance +  "<br />" + 
+    var resultTable = __( 'Loan amount', 'mortgage' ) + ": " + currency + formatNumber(balance) +  "<br />" + 
         __( 'Interest rate' , 'mortgage' ) + ": " + (interestRate*100).toFixed(2) +  "%<br />" +
         __( 'Number of payments' , 'mortgage' ) + ": " + terms*frequency + "<br />" +
-        __( 'Recurring payment' , 'mortgage' ) + ": " + currency + payment.toFixed(2) + "<br />" +
-        __( 'Total paid' , 'mortgage' ) + ": " + currency + (payment * terms* frequency).toFixed(2) + "<br /><br />";
+        __( 'Recurring payment' , 'mortgage' ) + ": " + currency + formatNumber(payment) + "<br />" +
+        __( 'Total paid' , 'mortgage' ) + ": " + currency + formatNumber(payment * terms* frequency) + "<br /><br />";
         
     //add header row for table to return string
 	resultTable += "<table border='1'><tr><th>#</th><th>" + __( 'Payment', 'mortgage' ) + "</th>" + 
@@ -102,14 +103,14 @@ function amort( balance, interestRate, terms, frequency, formEl )
 		//display the month number in col 1 using the loop count variable
 		resultTable += "<td>" + (count + 1) + "</td>";
 		
-		resultTable += "<td>" + currency + payment.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + formatNumber(payment) + "</td>";
 
-		resultTable += "<td>" + currency + interest.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + formatNumber(interest) + "</td>";
 		
-		resultTable += "<td>" + currency + monthlyPrincipal.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + formatNumber(monthlyPrincipal) + "</td>";
 		
 		//code for displaying in loop balance
-		resultTable += "<td>" + currency + balance.toFixed(2) + "</td>";
+		resultTable += "<td>" + currency + formatNumber(balance) + "</td>";
 		
 		//end the table row on each iteration of the loop	
 		resultTable += "</tr>";
@@ -119,7 +120,14 @@ function amort( balance, interestRate, terms, frequency, formEl )
 	//Final piece added to return string before returning it - closes the table
     resultTable += "</table>";
 
-	response( __( 'Recurring payment' , 'mortgage' ) + ": " + currency + '<b>' + payment.toFixed(2) + '</b>', 'success', formEl );
+	response( __( 'Recurring payment' , 'mortgage' ) + ": " + currency + '<b>' + formatNumber(payment) + '</b>', 'success', formEl );
 	tblDiv.innerHTML = resultTable;
 
+}
+
+function formatNumber( val ){
+	return val.toLocaleString( userLang, {
+	  minimumFractionDigits: 2,
+	  maximumFractionDigits: 2
+	})	
 }
