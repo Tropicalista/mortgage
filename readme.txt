@@ -1,4 +1,4 @@
-=== Mortgage ===
+=== Mortgage Calculator ===
 Contributors:      Formello, Tropicalista
 Donate link: 	   https://formello.net
 Tags:              mortgage block, calculator block, mortgage calculator
