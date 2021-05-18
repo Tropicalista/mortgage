@@ -32,6 +32,9 @@ With this block you can create a form to calculate a loan mortgage in less than 
 
 == Changelog ==
 
+= 0.1.3 =
+* Added responsive table
+
 = 0.1.2 =
 * Better formatting number based on user locale
 * Table 100% width in any case

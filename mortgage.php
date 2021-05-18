@@ -37,7 +37,7 @@ function create_block_mortgage_block_init() {
 	);
 	wp_register_script(
 		'mortgage-block-frontend',
-		plugins_url( 'build/frontend.js', __FILE__ ),
+		plugins_url( 'build/frontend2.js', __FILE__ ),
 		array( 'wp-i18n' ),
 		$script_asset['version']
 	);
