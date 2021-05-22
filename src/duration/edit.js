@@ -41,7 +41,8 @@ export default function Edit( { attributes, setAttributes, className } ) {
 	const blockProps = useBlockProps();
 	blockProps.className = classnames( blockProps.className, {
 		'as-row': attributes.asRow,
-		'bolded-label': attributes.boldedLabel
+		'bolded-label': attributes.boldedLabel,
+		'wp-block-mortgage-form': true
 	} );
 
 	return (
@@ -69,22 +70,19 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Fields Options', 'mortgage' ) } initialOpen={ false }>
+				<PanelBody title={ __( 'Labels', 'mortgage' ) } initialOpen={ false }>
 					<TextControl
-						label={ __( 'Amount Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.amount }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, amount: val } }) }
+						label={ __( 'Amount Label', 'mortgage' ) }
+						value={ attributes.label.amount }
+						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, amount: val } }) }
 					/>
 					<TextControl
-						label={ __( 'Rate Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.rate }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, rate: val } }) }
+						label={ __( 'Rate Label', 'mortgage' ) }
+						value={ attributes.label.rate }
+						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, rate: val } }) }
 					/>
-					<TextControl
-						label={ __( 'Term Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.term }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, term: val } }) }
-					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>
 					<NumberControl
 						label={ __( 'Amount Default Value', 'mortgage' ) }
 						value={ attributes.defaults.amount }
@@ -95,10 +93,17 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						value={ attributes.defaults.rate }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, rate: val } }) }
 					/>
-					<NumberControl
-						label={ __( 'Term Default Value', 'mortgage' ) }
-						value={ attributes.defaults.term }
-						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, term: val } }) }
+				</PanelBody>
+				<PanelBody title={ __( 'Placeholder Options', 'mortgage' ) } initialOpen={ false }>
+					<TextControl
+						label={ __( 'Amount Placeholder', 'mortgage' ) }
+						value={ attributes.placeholder.amount }
+						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, amount: val } }) }
+					/>
+					<TextControl
+						label={ __( 'Rate Placeholder', 'mortgage' ) }
+						value={ attributes.placeholder.rate }
+						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, rate: val } }) }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -142,54 +147,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					value={ attributes.help.rate }
 					onChange={ ( val ) => { 
 					    setAttributes({ help: { ...attributes.help, rate: val } });
-					}}
-					placeholder={ __( 'Enter help message...', 'mortgage' ) }
-					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
-				/>
-			</div>
-			<div>
-				<RichText
-					tagName="label"
-					value={ attributes.label.term }
-					onChange={ ( val ) => { 
-					    setAttributes({ label: { ...attributes.label, term: val } });
-					}}
-					placeholder={ __( 'Term', 'mortgage' ) }
-					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
-				/>
-				<input type="number" name="" readOnly placeholder={ attributes.placeholder.term } disabled={ true } value={ attributes.defaults.term } />
-				<RichText
-					tagName="small"
-					value={ attributes.help.term }
-					onChange={ ( val ) => { 
-					    setAttributes({ help: { ...attributes.help, term: val } });
-					}}
-					placeholder={ __( 'Enter help message...', 'mortgage' ) }
-					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
-				/>
-			</div>
-			<div>
-				<RichText
-					tagName="label"
-					value={ attributes.label.frequency }
-					onChange={ ( val ) => { 
-					    setAttributes({ label: { ...attributes.label, frequency: val } });
-					}}
-					placeholder={ __( 'Enter label...', 'mortgage' ) }
-					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
-				/>
-				<select name="frequency" disabled>
-					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
-				</select>
-				<RichText
-					tagName="small"
-					value={ attributes.help.frequency }
-					onChange={ ( val ) => { 
-					    setAttributes({ help: { ...attributes.help, frequency: val } });
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }

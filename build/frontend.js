@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/frontend2.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/frontend.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -957,6 +957,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
 var userLang = navigator.language || navigator.userLanguage;
 var summaryDiv = document.createElement('div');
 var tableDiv = document.createElement('div');
@@ -971,21 +978,47 @@ var Calculator = /*#__PURE__*/function () {
     this.term = parseFloat(formEl.querySelector('[name="term"]').value);
     this.frequency = parseFloat(formEl.querySelector('[name="frequency"]').value);
     this.currency = '<small>' + formEl.dataset.currency + '</small>';
-    this.payment();
+    this.showSummary = formEl.dataset.yearsummary === 'true';
+    this.showTable = formEl.dataset.showtable === 'true';
+    this.result = this.payment() * -1;
+    this.totalInterestPaid = 0;
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Calculator, [{
     key: "payment",
     value: function payment() {
       var result = Object(financial__WEBPACK_IMPORTED_MODULE_2__["pmt"])(this.rate / this.frequency, this.frequency * this.term, this.amount);
-      this.result = result * -1;
+      return result;
     }
   }, {
     key: "summary",
     value: function summary() {
       //begin building the return string for the display of the amort table
-      var summary = '<p>' + __('Loan amount', 'mortgage') + ": <b>" + this.currency + this.formatNumber(this.amount) + '</b><br />' + __('Interest rate', 'mortgage') + ': <b>' + this.rate.toFixed(2) * 100 + '%</b><br />' + __('Number of payments', 'mortgage') + ': <b>' + this.term * this.frequency + '</b><br />' + __('Recurring payment', 'mortgage') + ': <b>' + this.currency + this.formatNumber(this.result) + '</b><br />' + __('Total paid', 'mortgage') + ': <b>' + this.currency + this.formatNumber(this.result * this.term * this.frequency) + '</b></p>';
+      var summary = '<p>' + __('Loan amount', 'mortgage') + ": <b>" + this.formatNumber(this.amount) + '</b><br />' + __('Interest rate', 'mortgage') + ': <b>' + this.rate.toFixed(2) * 100 + '%</b><br />' + __('Number of payments', 'mortgage') + ': <b>' + this.term * this.frequency + '</b><br />' + __('Recurring payment', 'mortgage') + ': <b>' + this.formatNumber(this.result) + '</b><br />' + __('Total paid', 'mortgage') + ': <b>' + this.formatNumber(this.result * this.term * this.frequency) + '</b></p>';
       return summary;
+    }
+  }, {
+    key: "generateTableHead",
+    value: function generateTableHead(table, data) {
+      var thead = table.createTHead();
+      var row = thead.insertRow();
+
+      var _iterator = _createForOfIteratorHelper(data),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var key = _step.value;
+          var th = document.createElement("th");
+          var text = document.createTextNode(key);
+          th.appendChild(text);
+          row.appendChild(th);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
     }
   }, {
     key: "mortgageTable",
@@ -993,7 +1026,8 @@ var Calculator = /*#__PURE__*/function () {
       var _this = this;
 
       //add header row for table to return string
-      var resultTable = "<table border='1'><tr><th>#</th><th>" + __('Payment', 'mortgage') + "</th>" + "<th>" + __('Interest', 'mortgage') + "</th><th>" + __('Principal', 'mortgage') + "</th><th>" + __('Balance', 'mortgage') + "</th>"; // convert total payments to progressive array
+      var resultTable = "<table><tr><th>#</th><th>" + __('Payment', 'mortgage') + "</th>" + "<th>" + __('Interest', 'mortgage') + "</th><th>" + __('Principal', 'mortgage') + "</th><th>" + __('Balance', 'mortgage') + "</th>";
+      var heads = ['#', __('Payment', 'mortgage'), __('Interest', 'mortgage'), __('Principal', 'mortgage'), __('Balance', 'mortgage')]; // convert total payments to progressive array
 
       var periods = Array.from(Array(this.term * this.frequency).keys());
       periods.shift();
@@ -1013,15 +1047,18 @@ var Calculator = /*#__PURE__*/function () {
         resultTable += "<tr align=center>"; //display the month number in col 1 using the loop count variable
 
         resultTable += "<td>" + (i + 1) + "</td>";
-        resultTable += "<td>" + this.currency + this.formatNumber(this.result) + "</td>";
-        resultTable += "<td>" + this.currency + this.formatNumber(ipmts[i]) + "</td>";
-        resultTable += "<td>" + this.currency + this.formatNumber(this.result - ipmts[i]) + "</td>"; //code for displaying in loop balance
+        resultTable += "<td>" + this.formatNumber(this.result) + "</td>";
+        resultTable += "<td>" + this.formatNumber(ipmts[i]) + "</td>";
+        resultTable += "<td>" + this.formatNumber(this.result - ipmts[i]) + "</td>"; //code for displaying in loop balance
 
-        resultTable += "<td>" + this.currency + this.formatNumber(balance) + "</td>"; //end the table row on each iteration of the loop 
+        resultTable += "<td>" + this.formatNumber(balance) + "</td>"; //end the table row on each iteration of the loop 
 
         resultTable += "</tr>";
+        this.totalInterestPaid += ipmts[i];
 
-        if ((i + 1) % this.frequency) {// show year summary
+        if (0 === (i + 1) % this.frequency && this.showSummary) {
+          // show year summary
+          resultTable += this.yearSummary(i + 1);
         }
       } //Final piece added to return string before returning it - closes the table
 
@@ -1031,33 +1068,41 @@ var Calculator = /*#__PURE__*/function () {
     }
   }, {
     key: "yearSummary",
-    value: function yearSummary() {
+    value: function yearSummary(per) {
+      var year = Number(per / 12);
+      console.log(year);
       var result = '<tr>';
-      result += '<td>';
-      result += '';
+      result += '<td colspan="5">';
+      result += __('Total after year ', 'mortgage') + year + ': ' + this.formatNumber(this.result * this.frequency * year);
+      result += '<br>' + __('Interests paid after year ', 'mortgage') + year + ': ' + this.formatNumber(this.totalInterestPaid);
       result += '</td>';
       result += '</tr>';
+      return result;
     }
   }, {
     key: "response",
     value: function response(elm) {
-      elm = elm.parentNode;
+      var parent = elm.parentNode;
 
-      if ('wp-block-columns' === elm.parentNode.className) {
+      if ('wp-block-columns' === parent.parentNode.className) {
         elm = elm.parentNode.parentNode;
       }
 
       summaryDiv.className = 'wp-block-mortgage-summary';
       summaryDiv.innerHTML = this.summary();
-      tableDiv.className = 'wp-block-mortgage-table';
-      tableDiv.innerHTML = this.mortgageTable();
-      elm.appendChild(summaryDiv);
-      elm.appendChild(tableDiv);
+
+      if (this.showTable) {
+        tableDiv.className = 'wp-block-mortgage-table';
+        tableDiv.innerHTML = this.mortgageTable();
+        elm.after(tableDiv);
+      }
+
+      elm.after(summaryDiv);
     }
   }, {
     key: "formatNumber",
     value: function formatNumber(val) {
-      return val.toLocaleString(userLang, {
+      return this.currency + val.toLocaleString(userLang, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       });
@@ -1071,17 +1116,16 @@ var Calculator = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./src/frontend2.js":
-/*!**************************!*\
-  !*** ./src/frontend2.js ***!
-  \**************************/
+/***/ "./src/frontend.js":
+/*!*************************!*\
+  !*** ./src/frontend.js ***!
+  \*************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _calculator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calculator.js */ "./src/calculator.js");
-//import { pmt, ppmt, ipmt, fv } from 'financial'
 
 document.addEventListener('submit', handleSubmitEvents, true); // useCapture=false to ensure we bubble upwards (and thus can cancel propagation)
 
@@ -1105,4 +1149,4 @@ function handleSubmitEvents(e) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=frontend2.js.map
+//# sourceMappingURL=frontend.js.map

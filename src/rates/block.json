@@ -1,0 +1,71 @@
+{
+	"apiVersion": 2,
+	"name": "mortgage/rates",
+	"title": "Mortgage rates comparison",
+	"category": "widgets",
+	"icon": "calculator",
+	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
+	"textdomain": "mortgage",
+	"supports": {
+		"html": false,
+		"className": false
+	},
+	"attributes": {
+		"label": {
+			"type": "object",
+			"default": {
+				"amount": "Amount",
+				"rate": "Rate",
+				"term": "Term",
+				"increment": "Increment"			
+			}
+		},
+		"defaults": {
+			"type": "object",
+			"default": {
+				"amount": 10000,
+				"rate": 4,
+				"term": 10,
+				"increment": 1			
+			}
+		},
+		"placeholder": {
+			"type": "object",
+			"default": {
+				"amount": 10000,
+				"rate": 4,
+				"term": 10
+			}
+		},
+		"help": {
+			"type": "object",
+			"default": {
+				"amount": "",
+				"rate": "",
+				"term": "",				
+				"increment": ""		
+			}
+		},
+		"button": { 
+			"type": "string",
+			"default": "Calculate"
+		},
+		"currency": { 
+			"type": "string",
+			"default": "$"
+		},
+		"yearSummary": { 
+			"type": "boolean",
+			"default": false
+		},
+		"asRow": { 
+			"type": "boolean",
+			"default": false
+		},
+		"boldedLabel": { 
+			"type": "boolean",
+			"default": true
+		}		
+	},
+	"style": "file:../../build/style-index.css"
+}

@@ -63,5 +63,8 @@
 .wp-block-mortgage-table table {
   width: 100% !important;
 }
+.wp-block-mortgage-table table td {
+  text-align: center;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

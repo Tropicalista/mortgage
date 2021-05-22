@@ -25,15 +25,16 @@ import classnames from 'classnames';
 export default function save( { attributes, className } ) {
 	const blockProps = useBlockProps.save();
 	blockProps.className = classnames( blockProps.className, {
+		'wp-block-mortgage-form': true,
 		'as-row': attributes.asRow,
 		'bolded-label': attributes.boldedLabel
 	} );
 
 	return (
-		<form { ...blockProps } noValidate data-currency={ attributes.currency }>
+		<form { ...blockProps } noValidate data-currency={ attributes.currency } data-yearSummary={ attributes.yearSummary }>
 			<div>
 				<RichText.Content tagName="label" value={ attributes.label.amount } />
-				<input type="number" name="amount" min="0" required value={ attributes.defaults.amount } />
+				<input type="number" name="amount" min="0" required value={ attributes.defaults.amount } placeholder={ attributes.placeholder.amount } />
 				{
 					attributes.help.amount &&
 					<RichText.Content tagName="small" value={ attributes.help.amount } />
@@ -41,37 +42,15 @@ export default function save( { attributes, className } ) {
 			</div>
 			<div>
 				<RichText.Content tagName="label" value={ attributes.label.rate } />
-				<input type="number" name="rate" min="0" step="0.01" required value={ attributes.defaults.rate } />
+				<input type="number" name="rate" min="0" step="0.01" required value={ attributes.defaults.rate } placeholder={ attributes.placeholder.rate } />
 				{
 					attributes.help.rate &&
 					<RichText.Content tagName="small" value={ attributes.help.rate } />
 				}
 			</div>
 			<div>
-				<RichText.Content tagName="label" value={ attributes.label.term } />
-				<input type="number" name="term" min="0" required value={ attributes.defaults.term } />
-				{
-					attributes.help.term &&
-					<RichText.Content tagName="small" value={ attributes.help.term } />
-				}
-			</div>
-			<div>
-				<RichText.Content tagName="label" value={ attributes.label.frequency } />
-				<select name="frequency">
-					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
-					<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
-					<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
-					<option value="2">{ __( 'Semi-annually', 'mortgage' ) }</option>
-				</select>
-				{
-					attributes.help.frequency &&
-					<RichText.Content tagName="small" value={ attributes.help.frequency } />
-				}
-			</div>
-			<div>
 				<button className={ 'mortgage-btn' }>{ attributes.button }</button>
 			</div>
 		</form>
-
 	);
 }

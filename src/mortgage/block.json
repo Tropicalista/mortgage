@@ -1,0 +1,77 @@
+{
+	"apiVersion": 2,
+	"name": "mortgage/form",
+	"title": "Mortgage",
+	"category": "widgets",
+	"icon": "calculator",
+	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
+	"textdomain": "mortgage",
+	"supports": {
+		"html": false,
+		"className": true
+	},
+	"attributes": {
+		"label": {
+			"type": "object",
+			"default": {
+				"amount": "Amount",
+				"rate": "Rate",
+				"term": "Term",
+				"frequency": "Payment frequency"			
+			}
+		},
+		"defaults": {
+			"type": "object",
+			"default": {
+				"amount": 10000,
+				"rate": 4,
+				"term": 10,
+				"frequency": 12			
+			}
+		},
+		"placeholder": {
+			"type": "object",
+			"default": {
+				"amount": 10000,
+				"rate": 4,
+				"term": 10,
+				"frequency": 12			
+			}
+		},
+		"help": {
+			"type": "object",
+			"default": {
+				"amount": "",
+				"rate": "",
+				"term": "",				
+				"frequency": ""		
+			}
+		},
+		"button": { 
+			"type": "string",
+			"default": "Calculate"
+		},
+		"currency": { 
+			"type": "string",
+			"default": "$"
+		},
+		"showTable": { 
+			"type": "boolean",
+			"default": false
+		},
+		"yearSummary": { 
+			"type": "boolean",
+			"default": false
+		},
+		"asRow": { 
+			"type": "boolean",
+			"default": false
+		},
+		"boldedLabel": { 
+			"type": "boolean",
+			"default": true
+		}		
+	},
+	"editorScript": "file:../../build/index.js",
+	"style": "file:../../build/style-index.css"
+}
