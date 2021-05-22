@@ -4,7 +4,7 @@ Donate link: 	   https://formello.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, mortgage block
 Requires at least: 5.6.0
 Tested up to:      5.6.0
-Stable tag:        0.1.2
+Stable tag:        0.1.3
 Requires PHP:      7.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -34,6 +34,8 @@ With this block you can create a form to calculate a loan mortgage in less than 
 
 = 0.1.3 =
 * Added responsive table
+* Two new widgets for comparison
+* Better handling of calculations
 
 = 0.1.2 =
 * Better formatting number based on user locale
