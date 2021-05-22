@@ -4,7 +4,7 @@ document.addEventListener('submit', handleSubmitEvents, true) // useCapture=fals
 
 function handleSubmitEvents (e) {
   const formEl = e.target
-  if (formEl.className.indexOf('wp-block-mortgage-duration') < 0) {
+  if (formEl.className.indexOf('wp-block-mortgage-form') < 0) {
 	return
   }
   // always prevent default (because regular submit doesn't work for Formello)

@@ -2,9 +2,9 @@
 /**
  * Plugin Name:     Mortgage
  * Description:     A straightforward and simple responsive mortgage calculator block with a clean flat design, featuring Home Price, Interest Rate, Mortgage Term (years).
- * Version:         0.1.3
+ * Version:         0.1.4
  * Author:          Calcolo Rata Prestito
- * Author URI: 		https://www.calcolorataprestito.net/
+ * Author URI: 		https://www.calcoloratamutuo.net/
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     mortgage
