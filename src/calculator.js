@@ -1,6 +1,7 @@
 import { pmt, ipmt } from 'financial'
 
 const userLang = navigator.language || navigator.userLanguage; 
+const resultDiv = document.createElement( 'div' );
 const summaryDiv = document.createElement( 'div' );
 const tableDiv = document.createElement('div');
 
@@ -119,6 +120,9 @@ export default class Calculator {
 		if( 'wp-block-columns' === parent.parentNode.className ){
 			elm = elm.parentNode.parentNode;
 		}
+
+		resultDiv.className = 'wp-block-mortgage-result success'
+		resultDiv.innerHTML = '<p>' + __( 'Recurring payment', 'mortgage' ) + ': <b>' + this.formatNumber(this.result) + '</b></p>'
 		summaryDiv.className = 'wp-block-mortgage-summary'
 		summaryDiv.innerHTML = this.summary() 
 
@@ -129,6 +133,7 @@ export default class Calculator {
 		}
 
 		elm.after( summaryDiv );
+		elm.after( resultDiv );
 	}
 
 	formatNumber( val ){

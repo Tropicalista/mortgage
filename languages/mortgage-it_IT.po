@@ -1,164 +1,249 @@
+# Copyright (C) 2021 Calcolo Rata Prestito
+# This file is distributed under the same license as the Mortgage plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mortgage 0.1.0\n"
+"Project-Id-Version: Mortgage 0.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mortgage\n"
-"POT-Creation-Date: 2021-03-15T06:47:43+01:00\n"
-"PO-Revision-Date: 2021-03-15 06:54+0100\n"
-"Last-Translator: \n"
 "Language-Team: \n"
-"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-05-22 05:42+0200\n"
+"PO-Revision-Date: 2021-05-22 06:25+0200\n"
 "X-Generator: Poedit 2.4.2\n"
 "X-Domain: mortgage\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it_IT\n"
 
 #. Plugin Name of the plugin
-#: build/index.js:726 src/index.js:49
+#: build/index.js:1 src/mortgage/index.js:48
 msgid "Mortgage"
-msgstr "Ammortamento"
+msgstr "Amomrtamento"
 
 #. Description of the plugin
-msgid "Mortgage calculator block."
-msgstr "Blocco per il calcolo di un piano di ammortamento."
+msgid ""
+"A straightforward and simple responsive mortgage calculator block with a "
+"clean flat design, featuring Home Price, Interest Rate, Mortgage Term "
+"(years)."
+msgstr ""
+"Un blocco calcolatore di mutui reattivo diretto e semplice con un design "
+"flat pulito, con prezzo della casa, tasso di interesse, durata del mutuo "
+"(anni)."
 
 #. Author of the plugin
-msgid "Formello"
-msgstr "Formello"
+msgid "Calcolo Rata Prestito"
+msgstr "Calcolo Rata Prestito"
 
-#: build/frontend.js:116 src/frontend.js:25
-msgid "Please fill out the form!"
-msgstr "Per favore compila il form!"
+#. Author URI of the plugin
+msgid "https://www.calcolorataprestito.net/"
+msgstr "https://www.calcolorataprestito.net/"
 
-#: build/frontend.js:157 src/frontend.js:70
+#: build/duration.js:1 src/duration/calculator.js:51
+msgid "Duration"
+msgstr "Durata"
+
+#: build/duration.js:1 build/rates.js:1 src/duration/calculator.js:51
+#: src/rates/calculator.js:54
+msgid "Monthly payment"
+msgstr "Rata Mensile"
+
+#: build/duration.js:1 build/rates.js:1 src/duration/calculator.js:51
+#: src/rates/calculator.js:54
+msgid "Interests"
+msgstr "Interessi"
+
+#: build/duration.js:1 build/rates.js:1 src/duration/calculator.js:51
+#: src/rates/calculator.js:54
+msgid "Total"
+msgstr "Totale"
+
+#: build/duration.js:1 src/duration/calculator.js:58
+msgid " Years"
+msgstr " Anni"
+
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:30
 msgid "Loan amount"
 msgstr "Ammontare del prestito"
 
-#: build/frontend.js:157 src/frontend.js:71
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:31
 msgid "Interest rate"
 msgstr "Tasso di interesse"
 
-#: build/frontend.js:157 src/frontend.js:72
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:32
 msgid "Number of payments"
 msgstr "Numero di pagamenti"
 
-#: build/frontend.js:157 build/frontend.js:192 src/frontend.js:73
-#: src/frontend.js:122
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:33
 msgid "Recurring payment"
 msgstr "Rata"
 
-#: build/frontend.js:157 src/frontend.js:74
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:34
 msgid "Total paid"
 msgstr "Totale pagato"
 
-#: build/frontend.js:159 src/frontend.js:77
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:53
+#: src/calculator.js:56
 msgid "Payment"
-msgstr "Rata"
+msgstr "Pagamento"
 
-#: build/frontend.js:159 src/frontend.js:78
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:54
+#: src/calculator.js:56
 msgid "Interest"
-msgstr "Interessi"
+msgstr "Interesse"
 
-#: build/frontend.js:159 src/frontend.js:78
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:54
+#: src/calculator.js:56
 msgid "Principal"
 msgstr "Capitale"
 
-#: build/frontend.js:159 src/frontend.js:78
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:54
+#: src/calculator.js:56
 msgid "Balance"
 msgstr "Montante"
 
-#: build/index.js:320 src/attributes.js:6
-msgid "Amount"
-msgstr "Capitale"
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:110
+msgid "Total after year "
+msgstr "Totale dopo anno "
 
-#: build/index.js:321 build/index.js:567 src/attributes.js:7 src/edit.js:135
-msgid "Rate"
-msgstr "Tasso"
+#: build/frontend.js:1 build/rates.js:1 src/calculator.js:111
+msgid "Interests paid after year "
+msgstr "Interessi pagati dopo anno "
 
-#: build/index.js:322 build/index.js:600 src/attributes.js:8 src/edit.js:158
-msgid "Term"
-msgstr "Durata"
-
-#: build/index.js:323 src/attributes.js:9
-msgid "Payment frequency"
-msgstr "Frequenza dei pagamenti"
-
-#: build/index.js:355 src/attributes.js:41
-msgid "Calculate"
-msgstr "Calcola"
-
-#: build/index.js:427 src/edit.js:50
-msgid "Form Options"
-msgstr "Opzioni form"
-
-#: build/index.js:430 src/edit.js:52
-msgid "Button text"
-msgstr "Testo pulsante"
-
-#: build/index.js:438 src/edit.js:57
-msgid "Currency symbol"
-msgstr "Simbolo valuta"
-
-#: build/index.js:446 src/edit.js:62
-msgid "Display label on side"
-msgstr "Etichette a lato"
-
-#: build/index.js:454 src/edit.js:67
-msgid "Bolded label"
-msgstr "Etichette in grassetto"
-
-#: build/index.js:462 src/edit.js:72
-msgid "Fields Options"
-msgstr "Opzioni campi"
-
-#: build/index.js:465 src/edit.js:74
-msgid "Amount Placeholder"
-msgstr "Segnaposto per il campo Capitale"
-
-#: build/index.js:475 src/edit.js:79
-msgid "Rate Placeholder"
-msgstr "Segnaposto per Tasso"
-
-#: build/index.js:485 src/edit.js:84
-msgid "Term Placeholder"
-msgstr "Segnaposto per Durata"
-
-#: build/index.js:495 src/edit.js:89
-msgid "Amount Default Value"
-msgstr "Valore di default per Capitale"
-
-#: build/index.js:505 src/edit.js:94
-msgid "Rate Default Value"
-msgstr "Valore di default per tasso"
-
-#: build/index.js:515 src/edit.js:99
-msgid "Term Default Value"
-msgstr "Valore di default per durata"
-
-#: build/index.js:534 build/index.js:633 src/edit.js:112 src/edit.js:181
-msgid "Enter label..."
-msgstr "Inserisci etichetta..."
-
-#: build/index.js:554 build/index.js:587 build/index.js:620 build/index.js:651
-#: src/edit.js:123 src/edit.js:146 src/edit.js:169 src/edit.js:194
-msgid "Enter help message..."
-msgstr "Inserisci messaggio di aiuto..."
-
-#: build/index.js:641 build/index.js:872 src/edit.js:186 src/save.js:61
-msgid "Monthly"
-msgstr "Mensile"
-
-#: build/index.js:732 src/index.js:55
+#: build/index.js:1 src/mortgage/index.js:54
 msgid ""
 "A block to generate a very simple and easy to use mortgage calculator form."
 msgstr ""
 "Un blocco per generare un semplice form per il calcolo di un piano di "
 "ammortamento, di facile utilizzo."
 
-#: build/index.js:874 src/save.js:62
+#: build/index.js:1 src/duration/edit.js:51 src/mortgage/edit.js:50
+#: src/rates/edit.js:51
+msgid "Form Options"
+msgstr "Opzioni form"
+
+#: build/index.js:1 src/duration/edit.js:53 src/mortgage/edit.js:52
+#: src/rates/edit.js:53
+msgid "Button text"
+msgstr "Testo pulsante"
+
+#: build/index.js:1 src/duration/edit.js:58 src/mortgage/edit.js:57
+#: src/rates/edit.js:58
+msgid "Currency symbol"
+msgstr "Simbolo valuta"
+
+#: build/index.js:1 src/mortgage/edit.js:62
+msgid "Show table"
+msgstr "Mostra tabella"
+
+#: build/index.js:1 src/mortgage/edit.js:67
+msgid "Show year summary"
+msgstr "Mostra riepilogo annuale"
+
+#: build/index.js:1 src/duration/edit.js:63 src/mortgage/edit.js:72
+#: src/rates/edit.js:63
+msgid "Display label on side"
+msgstr "Mostra etichette a lato"
+
+#: build/index.js:1 src/duration/edit.js:68 src/mortgage/edit.js:77
+#: src/rates/edit.js:68
+msgid "Bolded label"
+msgstr "Etichette in grassetto"
+
+#: build/index.js:1 src/duration/edit.js:73 src/mortgage/edit.js:82
+#: src/rates/edit.js:73
+msgid "Labels"
+msgstr "Etichette"
+
+#: build/index.js:1 src/duration/edit.js:75 src/mortgage/edit.js:84
+#: src/rates/edit.js:75
+msgid "Amount Label"
+msgstr "Label Capitale"
+
+#: build/index.js:1 src/duration/edit.js:80 src/mortgage/edit.js:89
+#: src/rates/edit.js:80
+msgid "Rate Label"
+msgstr "Etichetta Tasso"
+
+#: build/index.js:1 src/mortgage/edit.js:94
+msgid "Term Label"
+msgstr "Etichetta DUrata"
+
+#: build/index.js:1 src/duration/edit.js:85 src/mortgage/edit.js:99
+#: src/rates/edit.js:85
+msgid "Default Values"
+msgstr "Valori di default"
+
+#: build/index.js:1 src/duration/edit.js:87 src/mortgage/edit.js:101
+#: src/rates/edit.js:87
+msgid "Amount Default Value"
+msgstr "Valore di default per Capitale"
+
+#: build/index.js:1 src/duration/edit.js:92 src/mortgage/edit.js:106
+#: src/rates/edit.js:92
+msgid "Rate Default Value"
+msgstr "Valore di default per tasso"
+
+#: build/index.js:1 src/mortgage/edit.js:111
+msgid "Term Default Value"
+msgstr "Valore di default per durata"
+
+#: build/index.js:1 src/duration/edit.js:97 src/mortgage/edit.js:116
+#: src/rates/edit.js:97
+msgid "Placeholder Options"
+msgstr "Opzioni Segnaposto"
+
+#: build/index.js:1 src/duration/edit.js:99 src/mortgage/edit.js:118
+#: src/rates/edit.js:99
+msgid "Amount Placeholder"
+msgstr "Segnaposto per il campo Capitale"
+
+#: build/index.js:1 src/duration/edit.js:104 src/mortgage/edit.js:123
+#: src/rates/edit.js:104
+msgid "Rate Placeholder"
+msgstr "Segnaposto per Tasso"
+
+#: build/index.js:1 src/mortgage/edit.js:128
+msgid "Term Placeholder"
+msgstr "Segnaposto per Durata"
+
+#: build/index.js:1 src/duration/edit.js:117 src/mortgage/edit.js:141
+#: src/mortgage/edit.js:210 src/rates/edit.js:117
+msgid "Enter label..."
+msgstr "Inserisci etichetta..."
+
+#: build/index.js:1 src/duration/edit.js:128 src/duration/edit.js:151
+#: src/mortgage/edit.js:152 src/mortgage/edit.js:175 src/mortgage/edit.js:198
+#: src/mortgage/edit.js:223 src/rates/edit.js:128 src/rates/edit.js:151
+#: src/rates/edit.js:174 src/rates/edit.js:197
+msgid "Enter help message..."
+msgstr "Inserisci messaggio di aiuto..."
+
+#: build/index.js:1 build/rates.js:1 src/duration/edit.js:140
+#: src/mortgage/edit.js:164 src/rates/calculator.js:54 src/rates/edit.js:163
+msgid "Rate"
+msgstr "Tasso"
+
+#: build/index.js:1 src/mortgage/edit.js:187 src/rates/edit.js:140
+msgid "Term"
+msgstr "Durata"
+
+#: build/index.js:1 src/mortgage/edit.js:215 src/mortgage/save.js:61
+msgid "Monthly"
+msgstr "Mensile"
+
+#: build/index.js:1 src/mortgage/save.js:62
+msgid "Bi-Monthly"
+msgstr "Bimensile"
+
+#: build/index.js:1 src/mortgage/save.js:63
 msgid "Quarterly"
 msgstr "Trimestrale"
 
-#: build/index.js:876 src/save.js:63
+#: build/index.js:1 src/mortgage/save.js:64
 msgid "Semi-annually"
 msgstr "Semestrale"
+
+#: build/index.js:1 src/rates/edit.js:186
+msgid "Increment"
+msgstr "Incremento"
