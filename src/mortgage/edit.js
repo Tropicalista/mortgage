@@ -211,8 +211,11 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					allowedFormats={ [] }
 					keepPlaceholderOnFocus={ true }
 				/>
-				<select name="frequency" disabled>
+				<select name="frequency">
 					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
+					<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
+					<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
+					<option value="2">{ __( 'Semi-annually', 'mortgage' ) }</option>
 				</select>
 				<RichText
 					tagName="small"

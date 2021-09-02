@@ -1,14 +1,14 @@
 <?php
 /**
  * Plugin Name:     Mortgage
- * Description:     A straightforward and simple responsive mortgage calculator block with a clean flat design, featuring Home Price, Interest Rate, Mortgage Term (years).
- * Version:         0.1.4
- * Author:          Calcolo Rata Prestito
+ * Description:     A straightforward and simple responsive mortgage calculator block with a clean flat design.
+ * Version:         0.1.5
+ * Author:          Calcolo Rata Mutuo
  * Author URI: 		https://www.calcoloratamutuo.net/
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     mortgage
- *
+ * 
  * @package         mortgage
  */
 
@@ -36,15 +36,13 @@ function mortgage_block_init() {
 		array( 'wp-i18n' ),
 	);
 
+    load_plugin_textdomain( 'mortgage', false, plugin_dir_path( __FILE__ ) . 'languages' ); 
 	wp_set_script_translations( 'mortgage-form-editor', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
 	wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
 
     register_block_type_from_metadata( 
         __DIR__ . '/src/mortgage',
         array(
-        	'attributes' => array(
-
-        	),
 			'render_callback' => function( $attrs, $content ) {
 				wp_enqueue_script( 'mortgage-block-frontend' );
 				return $content;

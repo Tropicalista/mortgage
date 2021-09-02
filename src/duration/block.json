@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": "2",
 	"name": "mortgage/duration",
 	"title": "Mortgage duration",
 	"category": "widgets",
@@ -68,5 +68,6 @@
 			"default": true
 		}		
 	},
+	"editorScript": "file:../../build/duration.js",
 	"style": "file:../../build/style-index.css"
 }

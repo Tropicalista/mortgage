@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": "2",
 	"name": "mortgage/form",
 	"title": "Mortgage",
 	"category": "widgets",

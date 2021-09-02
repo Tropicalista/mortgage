@@ -1,1 +1,73 @@
-.wp-block-mortgage-form{display:flex;flex-direction:column}.wp-block-mortgage-form div{display:flex;flex-direction:column;margin-bottom:1em;align-items:flex-start;flex-wrap:wrap}.wp-block-mortgage-form div small{width:100%}.wp-block-mortgage-form.as-row div{flex-direction:row;align-items:center}.wp-block-mortgage-form.as-row div label{width:180px}.wp-block-mortgage-form.as-row div button,.wp-block-mortgage-form.as-row div small{margin-left:180px}.wp-block-mortgage-form.bolded-label label{font-weight:bold}.wp-block-mortgage-result{padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent}.wp-block-mortgage-result.success{background-color:#dff0d8;border-color:#d0e9c6;color:#3c763d}.wp-block-mortgage-result.error{background-color:#fcf8e3;border-color:#faf2cc;color:#8a6d3b}.wp-block-mortgage-result small{margin:0 5px}.wp-block-mortgage-result p{margin:0}.wp-block-mortgage-table{overflow-x:auto}.wp-block-mortgage-table small{margin:0 5px}.wp-block-mortgage-table table{width:100% !important}.wp-block-mortgage-table table td{text-align:center}
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-mortgage-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-mortgage-form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.wp-block-mortgage-form div small {
+  width: 100%;
+}
+
+.wp-block-mortgage-form.as-row div {
+  flex-direction: row;
+  align-items: center;
+}
+.wp-block-mortgage-form.as-row div label {
+  width: 180px;
+}
+.wp-block-mortgage-form.as-row div button, .wp-block-mortgage-form.as-row div small {
+  margin-left: 180px;
+}
+
+.wp-block-mortgage-form.bolded-label label {
+  font-weight: bold;
+}
+
+.wp-block-mortgage-result {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+}
+.wp-block-mortgage-result.success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+.wp-block-mortgage-result.error {
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+  color: #8a6d3b;
+}
+.wp-block-mortgage-result small {
+  margin: 0 5px;
+}
+.wp-block-mortgage-result p {
+  margin: 0;
+}
+
+.wp-block-mortgage-table {
+  overflow-x: auto;
+}
+.wp-block-mortgage-table small {
+  margin: 0 5px;
+}
+.wp-block-mortgage-table table {
+  width: 100% !important;
+}
+.wp-block-mortgage-table table td {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

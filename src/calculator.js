@@ -105,7 +105,6 @@ export default class Calculator {
 
 	yearSummary( per ) {
 		let year = Number( per/12 );
-		console.log(year)
 		var result = '<tr>';
 		result += '<td colspan="5">';
 		result += __( 'Total after year ', 'mortgage' ) + year + ': ' + this.formatNumber( this.result*this.frequency*year );
