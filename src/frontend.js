@@ -7,7 +7,7 @@ function handleSubmitEvents (e) {
   if (formEl.className.indexOf('wp-block-mortgage-form') < 0) {
 	 return
   }
-  // always prevent default (because regular submit doesn't work for Formello)
+  // always prevent default
   e.preventDefault()
   e.stopPropagation()
 

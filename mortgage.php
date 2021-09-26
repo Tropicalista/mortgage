@@ -39,6 +39,8 @@ function mortgage_block_init() {
     load_plugin_textdomain( 'mortgage', false, plugin_dir_path( __FILE__ ) . 'languages' ); 
 	wp_set_script_translations( 'mortgage-form-editor', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
 	wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
+	wp_set_script_translations( 'mortgage-rates-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
+	wp_set_script_translations( 'mortgage-duration-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/' );
 
     register_block_type_from_metadata( 
         __DIR__ . '/src/mortgage',

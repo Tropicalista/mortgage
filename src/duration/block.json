@@ -4,7 +4,7 @@
 	"title": "Mortgage duration",
 	"category": "widgets",
 	"icon": "calculator",
-	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
+	"description": "A block to generate a mortgage calculator comparator form.",
 	"textdomain": "mortgage",
 	"supports": {
 		"html": false,

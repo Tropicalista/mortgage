@@ -1,7 +1,7 @@
 === Mortgage Calculator ===
 Contributors:      Formello, Tropicalista
 Donate link: 	   https://www.calcoloratamutuo.net
-Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, mortgage block, block
+Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
 Tested up to:      5.6.0
 Stable tag:        0.1.5
