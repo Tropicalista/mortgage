@@ -4,7 +4,7 @@ Donate link: 	   https://www.calcoloratamutuo.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
 Tested up to:      5.6.0
-Stable tag:        0.1.5
+Stable tag:        0.1.6
 Requires PHP:      7.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,9 +13,15 @@ A straightforward and simple responsive mortgage calculator block with a clean f
 
 == Description ==
 
-The Responsive Mortgage Calculator Block is a Gutenberg Block that’s designed to fit easily into any theme, on any device, at any size. Just what every "Real Estate Agent on the go" needs.
+The Responsive Mortgage Calculator Block is a Gutenberg Block collection that’s designed to fit easily into any theme, on any device, at any size. Just what every "Real Estate Agent on the go" needs.
 
 With this block you can create a form to calculate a loan mortgage in less than a minute. 
+
+== Blocks ==
+
+* Mortgage calculator: let you generate a simple mortgage calculator form, display a resume and a table with mortgage.
+* Mortgage duration comparator: generate a form that display a comparison table.
+* Mortgage rates comparator: generate a rate comparison table.
 
 == Screenshots ==
 
@@ -31,6 +37,9 @@ With this block you can create a form to calculate a loan mortgage in less than 
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.1.6 =
+* Fix table text alignment
 
 = 0.1.5 =
 * Fix block.json
