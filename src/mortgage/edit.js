@@ -140,7 +140,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
 				/>
 				<input type="number" name="" readOnly placeholder={ attributes.placeholder.amount } disabled={ true } value={ attributes.defaults.amount } />
 				<RichText
@@ -151,7 +150,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
 				/>
 			</div>
 			<div>
@@ -163,7 +161,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Rate', 'mortgage' ) }
 					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
 				/>
 				<input type="number" name="" readOnly placeholder={ attributes.placeholder.rate } disabled={ true } value={ attributes.defaults.rate } />
 				<RichText
@@ -174,7 +171,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
 				/>
 			</div>
 			<div>
@@ -186,7 +182,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Term', 'mortgage' ) }
 					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
 				/>
 				<input type="number" name="" readOnly placeholder={ attributes.placeholder.term } disabled={ true } value={ attributes.defaults.term } />
 				<RichText
@@ -197,7 +192,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
 				/>
 			</div>
 			<div>
@@ -209,7 +203,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
-					keepPlaceholderOnFocus={ true }
 				/>
 				<select name="frequency">
 					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
@@ -225,7 +218,6 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
 					allowedFormats= { allowedFormats }
-					keepPlaceholderOnFocus={ true }
 				/>
 			</div>
 			<div>

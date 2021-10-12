@@ -133,6 +133,7 @@ export default class Calculator {
 
 		elm.after( summaryDiv );
 		elm.after( resultDiv );
+		resultDiv.scrollIntoView({ behaviour: 'smooth', block: 'end', inline: 'start' });
 	}
 
 	formatNumber( val ){

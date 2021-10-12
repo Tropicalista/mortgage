@@ -3,9 +3,9 @@ Contributors:      Formello, Tropicalista
 Donate link: 	   https://www.calcoloratamutuo.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
-Tested up to:      5.6.0
+Tested up to:      5.8.1
 Stable tag:        0.1.6
-Requires PHP:      7.0.0
+Requires PHP:      5.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 

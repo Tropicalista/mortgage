@@ -16,6 +16,9 @@
 	margin-bottom: 1em;
 	align-items: flex-start;
 	flex-wrap: wrap;
+	input, select {
+		width: 100%;
+	}
 	small {
 		width: 100%;
 	}
