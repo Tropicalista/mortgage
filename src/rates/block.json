@@ -7,8 +7,7 @@
 	"description": "A block to generate a mortgage calculator rate comparator form.",
 	"textdomain": "mortgage",
 	"supports": {
-		"html": false,
-		"className": false
+		"html": false
 	},
 	"attributes": {
 		"label": {

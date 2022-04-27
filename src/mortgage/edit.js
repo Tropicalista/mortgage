@@ -69,31 +69,9 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						onChange={ ( val ) => setAttributes({ yearSummary: val }) }
 					/>
 					<ToggleControl
-						label={ __( 'Display label on side', 'mortgage' ) }
-						checked={ attributes.asRow }
-						onChange={ ( val ) => setAttributes({ asRow: val }) }
-					/>
-					<ToggleControl
 						label={ __( 'Bolded label', 'mortgage' ) }
 						checked={ attributes.boldedLabel }
 						onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
-					/>
-				</PanelBody>
-				<PanelBody title={ __( 'Labels', 'mortgage' ) } initialOpen={ false }>
-					<TextControl
-						label={ __( 'Amount Label', 'mortgage' ) }
-						value={ attributes.label.amount }
-						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, amount: val } }) }
-					/>
-					<TextControl
-						label={ __( 'Rate Label', 'mortgage' ) }
-						value={ attributes.label.rate }
-						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, rate: val } }) }
-					/>
-					<TextControl
-						label={ __( 'Term Label', 'mortgage' ) }
-						value={ attributes.label.term }
-						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, term: val } }) }
 					/>
 				</PanelBody>
 				<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>

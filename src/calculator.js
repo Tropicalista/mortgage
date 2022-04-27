@@ -10,15 +10,27 @@ const { __ } = wp.i18n;
 export default class Calculator {
 
 	constructor( formEl ) {
-		this.amount = parseFloat( formEl.querySelector('[name="amount"]').value );
-		this.rate = parseFloat( formEl.querySelector('[name="rate"]').value/100 );
-		this.term = parseFloat( formEl.querySelector('[name="term"]').value );
-		this.frequency = parseFloat( formEl.querySelector('[name="frequency"]').value );
+		console.log(formEl)
+
+		this.setFormInput(formEl)
+
+		//this.amount = parseFloat( formEl.querySelector('[name="amount"]').value );
+		//this.rate = parseFloat( formEl.querySelector('[name="rate"]').value/100 );
+		//this.term = parseFloat( formEl.querySelector('[name="term"]').value );
+		//this.frequency = parseFloat( formEl.querySelector('[name="frequency"]').value );
 		this.currency = '<small>' + formEl.dataset.currency + '</small>';
 		this.showSummary = formEl.dataset.yearsummary === 'true';
 		this.showTable = formEl.dataset.showtable === 'true';
 		this.result = this.payment()*-1;
 		this.totalInterestPaid = 0;
+	}
+
+	setFormInput( formEl ) {
+		var data = new FormData(formEl);
+		for (var [key, value] of data) {
+			this[key] = parseFloat( value )
+		}
+	    console.log(this)
 	}
 
 	payment() {
@@ -133,7 +145,9 @@ export default class Calculator {
 
 		elm.after( summaryDiv );
 		elm.after( resultDiv );
-		resultDiv.scrollIntoView({ behaviour: 'smooth', block: 'end', inline: 'start' });
+
+		resultDiv.scrollIntoView({ behavior: 'smooth' });
+
 	}
 
 	formatNumber( val ){

@@ -1,6 +1,6 @@
 import Calculator from './calculator.js'
 
-document.addEventListener('submit', handleSubmitEvents, true) // useCapture=false to ensure we bubble upwards (and thus can cancel propagation)
+//document.addEventListener('submit', handleSubmitEvents, true) // useCapture=false to ensure we bubble upwards (and thus can cancel propagation)
 
 function handleSubmitEvents (e) {
   const formEl = e.target
@@ -11,9 +11,9 @@ function handleSubmitEvents (e) {
   e.preventDefault()
   e.stopPropagation()
 
-  if(formEl.reportValidity()){
-  	let calculator = new Calculator( formEl )
-  	calculator.response(formEl)
+  if( formEl.reportValidity() ){
+	let calculator = new Calculator( formEl )
+	calculator.response(formEl)
   }
 
 }

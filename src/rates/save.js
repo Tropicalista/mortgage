@@ -25,7 +25,6 @@ import classnames from 'classnames';
 export default function save( { attributes, className } ) {
 	const blockProps = useBlockProps.save();
 	blockProps.className = classnames( blockProps.className, {
-		'as-row': attributes.asRow,
 		'bolded-label': attributes.boldedLabel,
 		'wp-block-mortgage-form': true
 	} );
