@@ -10,7 +10,6 @@ const { __ } = wp.i18n;
 export default class Calculator {
 
 	constructor( formEl ) {
-		console.log(formEl)
 
 		this.setFormInput(formEl)
 
