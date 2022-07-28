@@ -29,6 +29,7 @@ export default class Calculator {
 		for (var [key, value] of data) {
 			this[key] = parseFloat( value )
 		}
+		this.rate = this.rate/100;
 	    console.log(this)
 	}
 
