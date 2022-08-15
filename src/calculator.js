@@ -41,7 +41,7 @@ export default class Calculator {
 	summary() {
 		//begin building the return string for the display of the amort table
     	var summary = '<p>' + __( 'Loan amount', 'mortgage' ) + ": <b>" + this.formatNumber( this.amount ) +  '</b><br />' + 
-        __( 'Interest rate' , 'mortgage' ) + ': <b>' + this.rate.toFixed(2)*100 +  '%</b><br />' +
+        __( 'Interest rate' , 'mortgage' ) + ': <b>' + this.rate*100 +  '%</b><br />' +
         __( 'Number of payments' , 'mortgage' ) + ': <b>' + this.term*this.frequency + '</b><br />' +
         __( 'Recurring payment' , 'mortgage' ) + ': <b>' + this.formatNumber( this.result ) + '</b><br />' +
         __( 'Total paid' , 'mortgage' ) + ': <b>' + this.formatNumber( this.result * this.term* this.frequency ) + '</b></p>';
