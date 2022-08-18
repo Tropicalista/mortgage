@@ -67,5 +67,6 @@
 		}		
 	},
 	"editorScript": "file:../../build/rates.js",
+	"viewScript": "mortgage-rates-frontend",
 	"style": "file:../../build/style-index.css"
 }

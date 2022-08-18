@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, registerBlockStyle } from '@wordpress/blocks';
 
 /**
  * Retrieves the translation of text.
@@ -26,7 +26,7 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
-import metadata from './block.json';
+import metadata from '../../block.json';
 
 const { name, attributes } = metadata;
 

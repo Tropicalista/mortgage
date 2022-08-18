@@ -16,26 +16,23 @@
 	margin-bottom: 1em;
 	align-items: flex-start;
 	flex-wrap: wrap;
+	input, select, button {
+		padding: .5em;
+	}
 	input, select {
 		width: 100%;
+		max-width: 100%;
 	}
 	small {
 		width: 100%;
 	}
-}
-
-.wp-block-mortgage-form.as-row div {
-	flex-direction: row;
-	align-items: center;
-	label {
-		width: 180px;
-	}
-	button, small {
-		margin-left: 180px;
+	button {
+		margin: 0 !important;
+		border: none;
 	}
 }
 
-.wp-block-mortgage-form.bolded-label {
+.wp-block-mortgage-form.is-style-bolded {
 	label {
 		font-weight: bold;
 	}

@@ -5,7 +5,6 @@
 	"category": "widgets",
 	"icon": "calculator",
 	"description": "A block to generate a mortgage calculator comparator form.",
-	"textdomain": "mortgage",
 	"supports": {
 		"html": false
 	},
@@ -67,6 +66,8 @@
 			"default": true
 		}		
 	},
+	"textdomain": "mortgage",
 	"editorScript": "file:../../build/duration.js",
-	"style": "file:../../build/style-index.css"
+	"style": "file:../../build/style-index.css",
+	"viewScript": "mortgage-duration-frontend"
 }

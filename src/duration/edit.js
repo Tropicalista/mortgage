@@ -14,7 +14,6 @@ import {
 
 import {
 	TextControl,
-	__experimentalNumberControl as NumberControl,
 	ToggleControl,
 	PanelRow,
 	PanelBody,
@@ -70,25 +69,15 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Labels', 'mortgage' ) } initialOpen={ false }>
-					<TextControl
-						label={ __( 'Amount Label', 'mortgage' ) }
-						value={ attributes.label.amount }
-						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, amount: val } }) }
-					/>
-					<TextControl
-						label={ __( 'Rate Label', 'mortgage' ) }
-						value={ attributes.label.rate }
-						onChange={ ( val ) => setAttributes({ label: { ...attributes.label, rate: val } }) }
-					/>
-				</PanelBody>
 				<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>
-					<NumberControl
+					<TextControl
+						type={ 'number' }
 						label={ __( 'Amount Default Value', 'mortgage' ) }
 						value={ attributes.defaults.amount }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, amount: val } }) }
 					/>
-					<NumberControl
+					<TextControl
+						type={ 'number' }
 						label={ __( 'Rate Default Value', 'mortgage' ) }
 						value={ attributes.defaults.rate }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, rate: val } }) }

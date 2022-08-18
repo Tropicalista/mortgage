@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mortgage
  * Description: A straightforward and simple responsive mortgage calculator block with a clean flat design.
- * Version:     0.2.3
+ * Version:     0.2.4
  * Author:      Calcolo Rata Mutuo
  * Author URI:  https://www.calcoloratamutuo.net/
  * License:     GPL-2.0-or-later
@@ -36,38 +36,23 @@ function mortgage_block_init()
         array( 'wp-i18n' ),
     );
 
-    load_plugin_textdomain('mortgage', false, plugin_dir_path(__FILE__) . 'languages');
-    wp_set_script_translations('mortgage-form-editor', 'mortgage', plugin_dir_path(__FILE__) . 'languages/');
-    wp_set_script_translations('mortgage-block-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/');
-    wp_set_script_translations('mortgage-rates-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/');
-    wp_set_script_translations('mortgage-duration-frontend', 'mortgage', plugin_dir_path(__FILE__) . 'languages/');
+    load_plugin_textdomain( 'mortgage', false, plugin_dir_path(__FILE__) . 'languages');
+    wp_set_script_translations( 'mortgage-form-editor-script', 'mortgage', plugin_dir_path(__FILE__) . 'languages');
+    wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
+    wp_set_script_translations( 'mortgage-rates-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
+    wp_set_script_translations( 'mortgage-duration-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
 
     register_block_type_from_metadata(
-        __DIR__ . '/src/mortgage',
-        array(
-            'render_callback' => function ($attrs, $content) {
-                wp_enqueue_script('mortgage-block-frontend');
-                return $content;
-            },
-        )
+        __DIR__,
+    );
+    register_block_type_from_metadata(
+        __DIR__ . '/src/button',
     );
     register_block_type_from_metadata(
         __DIR__ . '/src/duration',
-        array(
-            'render_callback' => function ($attrs, $content) {
-                wp_enqueue_script('mortgage-duration-frontend');
-                return $content;
-            },
-        )
     );
     register_block_type_from_metadata(
         __DIR__ . '/src/rates',
-        array(
-            'render_callback' => function ($attrs, $content) {
-                wp_enqueue_script('mortgage-rates-frontend');
-                return $content;
-            },
-        )
     );
 }
 add_action('init', 'mortgage_block_init');

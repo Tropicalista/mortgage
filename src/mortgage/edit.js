@@ -7,6 +7,7 @@ import {
 
 import {
 	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	AlignmentToolbar,
 	RichText,
@@ -14,7 +15,6 @@ import {
 
 import {
 	TextControl,
-	__experimentalNumberControl as NumberControl,
 	ToggleControl,
 	PanelRow,
 	PanelBody,
@@ -44,15 +44,16 @@ export default function Edit( { attributes, setAttributes, className } ) {
 		'bolded-label': attributes.boldedLabel
 	} );
 
+	const { children, ...innerBlocksProps } = useInnerBlocksProps( blockProps, {
+		allowedBlocks: [ 'mortgage/button' ],
+		templateLock: false,
+		template: [ [ 'mortgage/button' ] ],
+	} );
+
 	return (
 		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody title={ __( 'Form Options', 'mortgage' ) } initialOpen={ true }>
-					<TextControl
-						label={ __( 'Button text', 'mortgage' ) }
-						value={ attributes.button }
-						onChange={ ( val ) => setAttributes({ button: val }) }
-					/>
 					<TextControl
 						label={ __( 'Currency symbol', 'mortgage' ) }
 						value={ attributes.currency }
@@ -63,29 +64,30 @@ export default function Edit( { attributes, setAttributes, className } ) {
 						checked={ attributes.showTable }
 						onChange={ ( val ) => setAttributes({ showTable: val }) }
 					/>
-					<ToggleControl
-						label={ __( 'Show year summary', 'mortgage' ) }
-						checked={ attributes.yearSummary }
-						onChange={ ( val ) => setAttributes({ yearSummary: val }) }
-					/>
-					<ToggleControl
-						label={ __( 'Bolded label', 'mortgage' ) }
-						checked={ attributes.boldedLabel }
-						onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
-					/>
+					{
+						attributes.showTable &&
+						<ToggleControl
+							label={ __( 'Show year summary', 'mortgage' ) }
+							checked={ attributes.yearSummary }
+							onChange={ ( val ) => setAttributes({ yearSummary: val }) }
+						/>
+					}
 				</PanelBody>
 				<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>
-					<NumberControl
+					<TextControl
+						type={ 'number' }
 						label={ __( 'Amount Default Value', 'mortgage' ) }
 						value={ attributes.defaults.amount }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, amount: val } }) }
 					/>
-					<NumberControl
+					<TextControl
+						type={ 'number' }
 						label={ __( 'Rate Default Value', 'mortgage' ) }
 						value={ attributes.defaults.rate }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, rate: val } }) }
 					/>
-					<NumberControl
+					<TextControl
+						type={ 'number' }
 						label={ __( 'Term Default Value', 'mortgage' ) }
 						value={ attributes.defaults.term }
 						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, term: val } }) }
@@ -119,7 +121,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input type="number" name="" readOnly placeholder={ attributes.placeholder.amount } disabled={ true } value={ attributes.defaults.amount } />
+				<input type="number" name="" placeholder={ attributes.placeholder.amount } disabled={ true } value={ attributes.defaults.amount } />
 				<RichText
 					tagName="small"
 					value={ attributes.help.amount }
@@ -140,7 +142,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Rate', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input type="number" name="" readOnly placeholder={ attributes.placeholder.rate } disabled={ true } value={ attributes.defaults.rate } />
+				<input type="number" name="" placeholder={ attributes.placeholder.rate } disabled={ true } value={ attributes.defaults.rate } />
 				<RichText
 					tagName="small"
 					value={ attributes.help.rate }
@@ -161,7 +163,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Term', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input type="number" name="" readOnly placeholder={ attributes.placeholder.term } disabled={ true } value={ attributes.defaults.term } />
+				<input type="number" name="" placeholder={ attributes.placeholder.term } disabled={ true } value={ attributes.defaults.term } />
 				<RichText
 					tagName="small"
 					value={ attributes.help.term }
@@ -199,7 +201,7 @@ export default function Edit( { attributes, setAttributes, className } ) {
 				/>
 			</div>
 			<div>
-				<button>{ attributes.button }</button>
+				{ children }
 			</div>
 		</div>
 	);

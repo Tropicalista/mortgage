@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 import classnames from 'classnames';
 /**
  * The save function defines the way in which the different attributes should
@@ -69,7 +69,7 @@ export default function save( { attributes, className } ) {
 				}
 			</div>
 			<div>
-				<button className={ 'mortgage-btn' }>{ attributes.button }</button>
+				<InnerBlocks.Content />
 			</div>
 		</form>
 

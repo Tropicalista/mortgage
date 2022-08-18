@@ -5,7 +5,6 @@
 	"category": "widgets",
 	"icon": "calculator",
 	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
-	"textdomain": "mortgage",
 	"supports": {
 		"html": false,
 		"className": true
@@ -72,6 +71,16 @@
 			"default": true
 		}		
 	},
-	"editorScript": "file:../../build/index.js",
-	"style": "file:../../build/style-index.css"
+	"styles": [
+		{
+			"name": "regular",
+			"label": "Default",
+			"isDefault": true
+		},
+		{ "name": "bolded", "label": "Bolded label" }
+	],
+	"textdomain": "mortgage",
+	"editorScript": "file:./build/index.js",
+	"viewScript": "mortgage-block-frontend",
+	"style": "file:./build/style-index.css"
 }

@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mortgage/button",
+	"title": "Button",
+	"description": "A block to display form button.",
+	"icon": "button",
+	"textdomain": "mortgage",
+	"attributes": {
+		"text": {
+			"type": "string",
+			"default": "Calculate"
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"color": {
+					"background": "#000000",
+					"text": "#ffffff"
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"reusable": false,
+		"className": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"spacing": {
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		}
+	}
+}
