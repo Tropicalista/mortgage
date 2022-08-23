@@ -4,6 +4,7 @@ const userLang = navigator.language || navigator.userLanguage;
 const resultDiv = document.createElement( 'div' );
 const summaryDiv = document.createElement( 'div' );
 const tableDiv = document.createElement('div');
+const table = document.createElement('table');
 
 const { __ } = wp.i18n;
 
@@ -11,17 +12,13 @@ export default class Calculator {
 
 	constructor( formEl ) {
 
+		this.frequency = 12;
 		this.setFormInput(formEl)
 
-		//this.amount = parseFloat( formEl.querySelector('[name="amount"]').value );
-		//this.rate = parseFloat( formEl.querySelector('[name="rate"]').value/100 );
-		//this.term = parseFloat( formEl.querySelector('[name="term"]').value );
-		//this.frequency = parseFloat( formEl.querySelector('[name="frequency"]').value );
 		this.currency = '<small>' + formEl.dataset.currency + '</small>';
 		this.showSummary = formEl.dataset.yearsummary === 'true';
 		this.showTable = formEl.dataset.showtable === 'true';
-		this.result = this.payment()*-1;
-		this.totalInterestPaid = 0;
+		this.type = formEl.dataset.type;
 	}
 
 	setFormInput( formEl ) {
@@ -35,7 +32,7 @@ export default class Calculator {
 
 	payment() {
 		let result = pmt( this.rate/this.frequency, this.frequency*this.term, this.amount )
-		return result;
+		return result*-1;
 	}
 
 	summary() {
@@ -46,8 +43,20 @@ export default class Calculator {
         __( 'Recurring payment' , 'mortgage' ) + ': <b>' + this.formatNumber( this.result ) + '</b><br />' +
         __( 'Total paid' , 'mortgage' ) + ': <b>' + this.formatNumber( this.result * this.term* this.frequency ) + '</b></p>';
 
-    return summary
+    	return summary
+	}
 
+	generateTable(table, data) {
+	  for (let element of data) {
+	    let row = table.insertRow();
+	    if( this.showSummary ){
+			this.yearSummary( element['#'] )
+	    }
+	    for (let key in element) {
+	      let cell = row.insertCell();
+	      cell.innerHTML = element[key];
+	    }
+	  }
 	}
 
 	generateTableHead(table, data) {
@@ -61,85 +70,92 @@ export default class Calculator {
 	  }
 	}
 
-	mortgageTable() {
-		//add header row for table to return string
-		var resultTable = "<table><tr><th>#</th><th>" + __( 'Payment', 'mortgage' ) + "</th>" + 
-				"<th>" + __( 'Interest', 'mortgage' ) + "</th><th>" + __( 'Principal', 'mortgage' ) + "</th><th>" + __( 'Balance', 'mortgage' ) + "</th>";
+	yearSummary( nth ){
+
+		if( 0 !== ( nth % this.frequency ) ){
+			return
+		}
+
+		let arr = this.ipmts.slice( 0, nth )
+
+		let result = '';
+		let year = Number( nth/this.frequency );
+		result += __( 'Total after year ', 'mortgage' ) + year + ': ' + this.formatNumber( this.result*this.frequency*year );
+		result += '<br>' + 
+					__( 'Interests paid after year ', 'mortgage' ) + 
+					year + 
+					': ' + 
+					this.formatNumber( arr.reduce((a, b) => a + b, 0)*-1 );
+
+		let row = table.insertRow(-1);
+		let cell = row.insertCell(0);
+		cell.innerHTML = result;
+		cell.colSpan = 5;
+	}
+
+	mortgageTable( elm ){
+		let data = [];
+
 		let heads = [
-		  '#', __( 'Payment', 'mortgage' ), __( 'Interest', 'mortgage' ), __( 'Principal', 'mortgage' ), __( 'Balance', 'mortgage' ) 
+		  '#', 
+		  __( 'Installment', 'mortgage' ), 
+		  __( 'Interest', 'mortgage' ), 
+		  __( 'Principal', 'mortgage' ), 
+		  __( 'Balance', 'mortgage' ) 
 		];
 		
 		// convert total payments to progressive array
-		var periods = Array.from( Array( this.term*this.frequency ).keys() )
-		periods.shift()
-		periods.push( periods.slice(-1).pop() +1 )
+		this.periods = this.getPeriods()
 
-		const ipmts = periods.map((per) => ipmt( this.rate / this.frequency, per, 1 * periods.length, this.amount)*-1)
-		var balance = this.amount
-		/**
-		 * Loop that calculates the monthly Loan amortization amounts then adds 
-		 * them to the return string 
-		 */
-		for ( var i = 0; i < ipmts.length; i++ )
+		this.ipmts = this.periods.map((per) => ipmt( this.rate / this.frequency, per, 1 * this.periods.length, this.amount) )
+		let balance = this.amount
+
+		for ( var i = 0; i < this.ipmts.length; i++ )
 		{ 
-			balance = balance - this.result + ipmts[i]
-			//start a new table row on each loop iteration
-			resultTable += "<tr align=center>";
+			balance = balance - this.result - this.ipmts[i]
 			
-			//display the month number in col 1 using the loop count variable
-			resultTable += "<td>" + (i+1) + "</td>";
-			
-			resultTable += "<td>" + this.formatNumber( this.result ) + "</td>";
+			data.push({
+				'#': i+1,
+				payment: this.formatNumber( this.result ),
+				interest: this.formatNumber( this.ipmts[i] * -1 ),
+				principal: this.formatNumber( this.result + this.ipmts[i] ),
+				balance: this.formatNumber( balance )
+			})
 
-			resultTable += "<td>" + this.formatNumber( ipmts[i] ) + "</td>";
-			
-			resultTable += "<td>" + this.formatNumber( this.result - ipmts[i] )  + "</td>";
-
-			//code for displaying in loop balance
-			resultTable += "<td>" + this.formatNumber( balance ) + "</td>";
-			
-			//end the table row on each iteration of the loop 
-			resultTable += "</tr>";
-
-			this.totalInterestPaid += ipmts[i];
-
-			if( 0 === (i+1)%this.frequency && this.showSummary ){
-				// show year summary
-				resultTable += this.yearSummary(i+1)
-			}
 		}
-	
-		//Final piece added to return string before returning it - closes the table
-		resultTable += "</table>";
-    
-		return resultTable
+
+		// reset table
+		table.innerHTML = '';
+		this.generateTableHead(table, heads);
+		this.generateTable(table, data);
+
 	}
 
-	yearSummary( per ) {
-		let year = Number( per/12 );
-		var result = '<tr>';
-		result += '<td colspan="5">';
-		result += __( 'Total after year ', 'mortgage' ) + year + ': ' + this.formatNumber( this.result*this.frequency*year );
-		result += '<br>' + __( 'Interests paid after year ', 'mortgage' ) + year + ': ' + this.formatNumber( this.totalInterestPaid );
-		result += '</td>';
-		result += '</tr>';
-		return result;
-	}
-
-	response( elm ){
+	loanResponse( elm ){
 		let parent = elm.parentNode;
-		if( 'wp-block-columns' === parent.parentNode.className ){
+		if( elm.closest( '.wp-block-columns' ) ){
 			elm = elm.parentNode.parentNode;
 		}
+		this.result = this.payment();
+
+		let heads = [
+		  '#', 
+		  __( 'Installment', 'mortgage' ), 
+		  __( 'Interest', 'mortgage' ), 
+		  __( 'Principal', 'mortgage' ), 
+		  __( 'Balance', 'mortgage' ) 
+		];
 
 		resultDiv.className = 'wp-block-mortgage-result success'
 		resultDiv.innerHTML = '<p>' + __( 'Recurring payment', 'mortgage' ) + ': <b>' + this.formatNumber(this.result) + '</b></p>'
 		summaryDiv.className = 'wp-block-mortgage-summary'
 		summaryDiv.innerHTML = this.summary() 
 
+
 		if( this.showTable ){
+			this.mortgageTable(elm)
 			tableDiv.className = 'wp-block-mortgage-table'
-			tableDiv.innerHTML = this.mortgageTable()
+			tableDiv.appendChild( table )
 			elm.after( tableDiv )
 		}
 
@@ -148,6 +164,111 @@ export default class Calculator {
 
 		resultDiv.scrollIntoView({ behavior: 'smooth' });
 
+	}
+
+	durationResponse( elm ){
+		let parent = elm.parentNode;
+		if( elm.closest( '.wp-block-columns' ) ){
+			elm = elm.parentNode.parentNode;
+		}
+
+		let heads = [
+			__( 'Duration', 'mortgage' ), 
+			__( 'Installment', 'mortgage' ), 
+			__( 'Interests', 'mortgage' ), 
+			__( 'Total', 'mortgage' ) 
+		];
+
+		let terms = [10,15,20,25,30,35,40]
+		let data = [];
+		terms.forEach( (y) => {
+			this.term = y;
+			data.push({ 
+				years: y + __( ' Years', 'mortgage' ), 
+				recurring: this.formatNumber( this.payment() ), 
+				interests: this.formatNumber( this.payment() * this.frequency * y - this.amount), 
+				total: this.formatNumber( this.payment() * this.frequency * y ), 
+				interests: this.formatNumber( this.payment() * this.frequency * y - this.amount), 
+			})
+		} )
+		// reset table
+		table.innerHTML = '';
+		this.generateTableHead(table, heads);
+		this.generateTable(table, data);
+
+	    resultDiv.className = 'wp-block-mortgage-table'
+
+		resultDiv.appendChild( table )
+		elm.after( resultDiv )
+
+		resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+	}
+
+	ratesResponse( elm ){
+
+		this.increment = parseFloat( elm.querySelector('[name="increment"]').value/100 );
+
+		let parent = elm.parentNode;
+		if( elm.closest( '.wp-block-columns' ) ){
+			elm = elm.parentNode.parentNode;
+		}
+
+		let heads = [
+		  __( 'Rate', 'mortgage' ), __( 'Installment', 'mortgage' ), __( 'Interests', 'mortgage' ), __( 'Total', 'mortgage' ) 
+		];
+
+		let count = [0,1,2,3,4,5,6,7,8]
+		let data = [];
+		let rate = this.rate;
+		count.forEach( (y) => {
+			this.rate = rate + this.increment * y;
+			data.push({ 
+				rate: ( this.rate*100 ).toFixed(2) + '<small>%</small>', 
+				recurring: this.formatNumber( this.payment() ), 
+				interests: this.formatNumber( this.payment() * 12 * this.term - this.amount ), 
+				total: this.formatNumber( this.payment() * 12 * this.term ), 
+			})
+		} )
+
+		// reset table
+		table.innerHTML = '';
+		
+		this.generateTableHead(table, heads);
+		this.generateTable(table, data);
+
+	    resultDiv.className = 'wp-block-mortgage-table'
+
+		resultDiv.appendChild( table )
+		elm.after( resultDiv )
+
+		resultDiv.scrollIntoView({ behavior: 'smooth' });
+
+	}
+
+	response( elm ) {
+		switch ( this.type )
+		{
+			case "loan":
+				this.loanResponse( elm )
+				break;
+			case "rates":
+				this.ratesResponse( elm )
+				break;
+			case "duration": 
+				this.durationResponse( elm )
+				break;
+			default: 
+
+		}
+	}
+
+	getPeriods(){
+		// convert total payments to progressive array
+		let periods = Array.from( Array( this.term*this.frequency ).keys() )
+		periods.shift()
+		periods.push( periods.slice(-1).pop() +1 )
+		return periods;
 	}
 
 	formatNumber( val ){

@@ -14,7 +14,6 @@ import {
 
 import {
 	TextControl,
-	__experimentalNumberControl as NumberControl,
 	ToggleControl,
 	PanelRow,
 	PanelBody,
@@ -37,70 +36,53 @@ import classnames from 'classnames';
  *
  * @return {WPElement} Element to render.
  */
-export default function Settings( { attributes, setAttributes } ) {
+export default function Settings( props ) {
+
+	const { attributes, setAttributes } = props;
 
 	return (
 		<InspectorControls>
-			<PanelBody title={ __( 'Form Options', 'mortgage' ) } initialOpen={ true }>
-				<TextControl
-					label={ __( 'Button text', 'mortgage' ) }
-					value={ attributes.button }
-					onChange={ ( val ) => setAttributes({ button: val }) }
-				/>
+			<PanelBody title={ __( 'Form', 'mortgage' ) } initialOpen={ true }>
 				<TextControl
 					label={ __( 'Currency symbol', 'mortgage' ) }
 					value={ attributes.currency }
 					onChange={ ( val ) => setAttributes({ currency: val }) }
 				/>
-				<ToggleControl
-					label={ __( 'Show table', 'mortgage' ) }
-					checked={ attributes.showTable }
-					onChange={ ( val ) => setAttributes({ showTable: val }) }
-				/>
-				<ToggleControl
-					label={ __( 'Show year summary', 'mortgage' ) }
-					checked={ attributes.yearSummary }
-					onChange={ ( val ) => setAttributes({ yearSummary: val }) }
-				/>
-				<ToggleControl
-					label={ __( 'Bolded label', 'mortgage' ) }
-					checked={ attributes.boldedLabel }
-					onChange={ ( val ) => setAttributes({ boldedLabel: val }) }
-				/>
+				{
+					'loan' === attributes.type &&
+					<Fragment>
+						<ToggleControl
+							label={ __( 'Show table', 'mortgage' ) }
+							checked={ attributes.showTable }
+							onChange={ ( val ) => setAttributes({ showTable: val }) }
+						/>
+						<ToggleControl
+							label={ __( 'Show year summary', 'mortgage' ) }
+							checked={ attributes.yearSummary }
+							onChange={ ( val ) => setAttributes({ yearSummary: val }) }
+						/>
+					</Fragment>
+				}
 			</PanelBody>
-			<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>
-				<NumberControl
-					label={ __( 'Amount Default Value', 'mortgage' ) }
-					value={ attributes.defaults.amount }
-					onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, amount: val } }) }
-				/>
-				<NumberControl
-					label={ __( 'Rate Default Value', 'mortgage' ) }
-					value={ attributes.defaults.rate }
-					onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, rate: val } }) }
-				/>
-				<NumberControl
-					label={ __( 'Term Default Value', 'mortgage' ) }
-					value={ attributes.defaults.term }
-					onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, term: val } }) }
-				/>
-			</PanelBody>
-			<PanelBody title={ __( 'Placeholder Options', 'mortgage' ) } initialOpen={ false }>
+			<PanelBody title={ __( 'Placeholders', 'mortgage' ) } initialOpen={ false }>
 				<TextControl
-					label={ __( 'Amount Placeholder', 'mortgage' ) }
+					label={ __( 'Amount', 'mortgage' ) }
 					value={ attributes.placeholder.amount }
 					onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, amount: val } }) }
 				/>
 				<TextControl
-					label={ __( 'Rate Placeholder', 'mortgage' ) }
+					label={ __( 'Rate', 'mortgage' ) }
 					value={ attributes.placeholder.rate }
 					onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, rate: val } }) }
 				/>
-				<TextControl
-					label={ __( 'Term Placeholder', 'mortgage' ) }
-					value={ attributes.placeholder.term }
-					onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, term: val } }) }
-				/>
+				{
+					'duration' !== attributes.type &&
+					<TextControl
+						label={ __( 'Term', 'mortgage' ) }
+						value={ attributes.placeholder.term }
+						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, term: val } }) }
+					/>
+				}
 			</PanelBody>
 		</InspectorControls>
 	);

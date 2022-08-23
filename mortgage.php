@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Mortgage
- * Description: A straightforward and simple responsive mortgage calculator block with a clean flat design.
+ * Description: A simple responsive mortgage calculator block with a clean flat design.
  * Version:     0.2.4
  * Author:      Calcolo Rata Mutuo
  * Author URI:  https://www.calcoloratamutuo.net/
@@ -25,22 +25,10 @@ function mortgage_block_init()
         plugins_url('build/frontend.js', __FILE__),
         array( 'wp-i18n' ),
     );
-    wp_register_script(
-        'mortgage-duration-frontend',
-        plugins_url('build/duration.js', __FILE__),
-        array( 'wp-i18n' ),
-    );
-    wp_register_script(
-        'mortgage-rates-frontend',
-        plugins_url('build/rates.js', __FILE__),
-        array( 'wp-i18n' ),
-    );
 
     load_plugin_textdomain( 'mortgage', false, plugin_dir_path(__FILE__) . 'languages');
     wp_set_script_translations( 'mortgage-form-editor-script', 'mortgage', plugin_dir_path(__FILE__) . 'languages');
     wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
-    wp_set_script_translations( 'mortgage-rates-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
-    wp_set_script_translations( 'mortgage-duration-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
 
     register_block_type_from_metadata(
         __DIR__,
@@ -48,11 +36,6 @@ function mortgage_block_init()
     register_block_type_from_metadata(
         __DIR__ . '/src/button',
     );
-    register_block_type_from_metadata(
-        __DIR__ . '/src/duration',
-    );
-    register_block_type_from_metadata(
-        __DIR__ . '/src/rates',
-    );
+
 }
 add_action('init', 'mortgage_block_init');

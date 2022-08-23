@@ -11,8 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, RichText, useInnerBlocksProps } from '@wordpress/block-editor';
 import classnames from 'classnames';
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -24,13 +25,15 @@ import classnames from 'classnames';
  */
 export default function save( { attributes, className } ) {
 	const blockProps = useBlockProps.save();
-	blockProps.className = classnames( blockProps.className, {
-		'as-row': attributes.asRow,
-		'bolded-label': attributes.boldedLabel
-	} );
+    const innerBlocksProps = useInnerBlocksProps.save( blockProps );
 
 	return (
-		<form { ...blockProps } noValidate data-currency={ attributes.currency } data-yearSummary={ attributes.yearSummary } data-showTable={ attributes.showTable }>
+		<form { ...blockProps } noValidate 
+			data-currency={ attributes.currency } 
+			data-yearSummary={ attributes.yearSummary } 
+			data-showTable={ attributes.showTable }
+			data-type={ attributes.type }
+		>
 			<div>
 				<RichText.Content tagName="label" value={ attributes.label.amount } />
 				<input type="number" name="amount" min="0" required value={ attributes.defaults.amount } placeholder={ attributes.placeholder.amount } />
@@ -47,30 +50,56 @@ export default function save( { attributes, className } ) {
 					<RichText.Content tagName="small" value={ attributes.help.rate } />
 				}
 			</div>
-			<div>
-				<RichText.Content tagName="label" value={ attributes.label.term } />
-				<input type="number" name="term" min="0" required value={ attributes.defaults.term } placeholder={ attributes.placeholder.term } />
-				{
-					attributes.help.term &&
-					<RichText.Content tagName="small" value={ attributes.help.term } />
-				}
-			</div>
-			<div>
-				<RichText.Content tagName="label" value={ attributes.label.frequency } />
-				<select name="frequency">
-					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
-					<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
-					<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
-					<option value="2">{ __( 'Semi-annually', 'mortgage' ) }</option>
-				</select>
-				{
-					attributes.help.frequency &&
-					<RichText.Content tagName="small" value={ attributes.help.frequency } />
-				}
-			</div>
-			<div>
-				<InnerBlocks.Content />
-			</div>
+			{
+				'duration' !== attributes.type &&
+
+				<div>
+					<RichText.Content tagName="label" value={ attributes.label.term } />
+					<input type="number" name="term" min="0" required value={ attributes.defaults.term } placeholder={ attributes.placeholder.term } />
+					{
+						attributes.help.term &&
+						<RichText.Content tagName="small" value={ attributes.help.term } />
+					}
+				</div>
+			}
+			{
+				'loan' === attributes.type &&
+				<div>
+					<RichText.Content tagName="label" value={ attributes.label.frequency } />
+					<select name="frequency">
+						<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
+						<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
+						<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
+						<option value="2">{ __( 'Half-yearly', 'mortgage' ) }</option>
+						<option value="1">{ __( 'Yearly', 'mortgage' ) }</option>
+					</select>
+					{
+						attributes.help.frequency &&
+						<RichText.Content tagName="small" value={ attributes.help.frequency } />
+					}
+				</div>
+			}		
+			{
+				'rates' === attributes.type &&
+				<div>
+					<RichText.Content tagName="label" value={ attributes.label.increment } />
+					<select name="increment">
+						<option value="0.125">1/8%</option>
+						<option value="0.250">1/4%</option>
+						<option value="0.375">3/8%</option>
+						<option value="0.5">1/2%</option>
+						<option value="0.625">5/8%</option>
+						<option value="0.875">7/8%</option>
+						<option value="1">1%</option>
+					</select>
+					{
+						attributes.help.increment &&
+						<RichText.Content tagName="small" value={ attributes.help.increment } />
+					}
+				</div>
+			}
+			<div {...innerBlocksProps} />
+
 		</form>
 
 	);

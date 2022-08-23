@@ -26,6 +26,7 @@ import './style.scss';
  */
 import Edit from './edit';
 import save from './save';
+import variations from './variations';
 import metadata from '../../block.json';
 
 const { name, attributes } = metadata;
@@ -63,6 +64,8 @@ registerBlockType( name, {
 	category: 'widgets',
 
 	attributes,
+
+	variations,
 
 	/**
 	 * @see ./edit.js

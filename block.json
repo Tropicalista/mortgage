@@ -4,7 +4,7 @@
 	"title": "Mortgage",
 	"category": "widgets",
 	"icon": "calculator",
-	"description": "A block to generate a very simple and easy to use mortgage calculator form.",
+	"description": "A block to generate a mortgage calculator form.",
 	"supports": {
 		"html": false,
 		"className": true
@@ -16,7 +16,8 @@
 				"amount": "Amount",
 				"rate": "Rate",
 				"term": "Term",
-				"frequency": "Payment frequency"			
+				"frequency": "Payment frequency",			
+				"increment": "Increment"			
 			}
 		},
 		"defaults": {
@@ -43,12 +44,13 @@
 				"amount": "",
 				"rate": "",
 				"term": "",				
-				"frequency": ""		
+				"frequency": "",	
+				"increment": ""				
 			}
 		},
-		"button": { 
+		"type": { 
 			"type": "string",
-			"default": "Calculate"
+			"default": "loan"
 		},
 		"currency": { 
 			"type": "string",
@@ -61,15 +63,7 @@
 		"yearSummary": { 
 			"type": "boolean",
 			"default": false
-		},
-		"asRow": { 
-			"type": "boolean",
-			"default": false
-		},
-		"boldedLabel": { 
-			"type": "boolean",
-			"default": true
-		}		
+		}	
 	},
 	"styles": [
 		{

@@ -4,13 +4,15 @@ import {
 	useEffect, 
 	Fragment 
 } from '@wordpress/element';
+import { useSelect } from '@wordpress/data';
+import Settings from '../components/settings';
 
 import {
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
 	AlignmentToolbar,
-	RichText,
+	RichText
 } from '@wordpress/block-editor';
 
 import {
@@ -37,80 +39,20 @@ import classnames from 'classnames';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { attributes, setAttributes, className } ) {
+export default function Edit( props ) {
+	const { attributes, setAttributes, className, clientId } = props;
 	const blockProps = useBlockProps();
-	blockProps.className = classnames( blockProps.className, {
-		'as-row': attributes.asRow,
-		'bolded-label': attributes.boldedLabel
-	} );
+	//blockProps.className = classnames( blockProps.className );
 
 	const { children, ...innerBlocksProps } = useInnerBlocksProps( blockProps, {
 		allowedBlocks: [ 'mortgage/button' ],
-		templateLock: false,
+		templateLock: true,
 		template: [ [ 'mortgage/button' ] ],
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<InspectorControls>
-				<PanelBody title={ __( 'Form Options', 'mortgage' ) } initialOpen={ true }>
-					<TextControl
-						label={ __( 'Currency symbol', 'mortgage' ) }
-						value={ attributes.currency }
-						onChange={ ( val ) => setAttributes({ currency: val }) }
-					/>
-					<ToggleControl
-						label={ __( 'Show table', 'mortgage' ) }
-						checked={ attributes.showTable }
-						onChange={ ( val ) => setAttributes({ showTable: val }) }
-					/>
-					{
-						attributes.showTable &&
-						<ToggleControl
-							label={ __( 'Show year summary', 'mortgage' ) }
-							checked={ attributes.yearSummary }
-							onChange={ ( val ) => setAttributes({ yearSummary: val }) }
-						/>
-					}
-				</PanelBody>
-				<PanelBody title={ __( 'Default Values', 'mortgage' ) } initialOpen={ false }>
-					<TextControl
-						type={ 'number' }
-						label={ __( 'Amount Default Value', 'mortgage' ) }
-						value={ attributes.defaults.amount }
-						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, amount: val } }) }
-					/>
-					<TextControl
-						type={ 'number' }
-						label={ __( 'Rate Default Value', 'mortgage' ) }
-						value={ attributes.defaults.rate }
-						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, rate: val } }) }
-					/>
-					<TextControl
-						type={ 'number' }
-						label={ __( 'Term Default Value', 'mortgage' ) }
-						value={ attributes.defaults.term }
-						onChange={ ( val ) => setAttributes({ defaults: { ...attributes.defaults, term: val } }) }
-					/>
-				</PanelBody>
-				<PanelBody title={ __( 'Placeholder Options', 'mortgage' ) } initialOpen={ false }>
-					<TextControl
-						label={ __( 'Amount Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.amount }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, amount: val } }) }
-					/>
-					<TextControl
-						label={ __( 'Rate Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.rate }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, rate: val } }) }
-					/>
-					<TextControl
-						label={ __( 'Term Placeholder', 'mortgage' ) }
-						value={ attributes.placeholder.term }
-						onChange={ ( val ) => setAttributes({ placeholder: { ...attributes.placeholder, term: val } }) }
-					/>
-				</PanelBody>
-			</InspectorControls>
+			<Settings {...props} />
 			<div>
 				<RichText
 					tagName="label"
@@ -121,7 +63,14 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input type="number" name="" placeholder={ attributes.placeholder.amount } disabled={ true } value={ attributes.defaults.amount } />
+				<input 
+					type="number" 
+					placeholder={ attributes.placeholder.amount } 
+					value={ attributes.defaults.amount } 
+					onChange={ ( e ) => { 
+					    setAttributes({ defaults: { ...attributes.defaults, amount: e.target.value } });
+					}}
+				/>
 				<RichText
 					tagName="small"
 					value={ attributes.help.amount }
@@ -142,7 +91,14 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					placeholder={ __( 'Rate', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input type="number" name="" placeholder={ attributes.placeholder.rate } disabled={ true } value={ attributes.defaults.rate } />
+				<input 
+					type="number" 
+					placeholder={ attributes.placeholder.rate } 
+					value={ attributes.defaults.rate } 
+					onChange={ ( e ) => { 
+					    setAttributes({ defaults: { ...attributes.defaults, rate: e.target.value } });
+					}}
+				/>
 				<RichText
 					tagName="small"
 					value={ attributes.help.rate }
@@ -153,53 +109,99 @@ export default function Edit( { attributes, setAttributes, className } ) {
 					allowedFormats= { allowedFormats }
 				/>
 			</div>
-			<div>
-				<RichText
-					tagName="label"
-					value={ attributes.label.term }
-					onChange={ ( val ) => { 
-					    setAttributes({ label: { ...attributes.label, term: val } });
-					}}
-					placeholder={ __( 'Term', 'mortgage' ) }
-					allowedFormats={ [] }
-				/>
-				<input type="number" name="" placeholder={ attributes.placeholder.term } disabled={ true } value={ attributes.defaults.term } />
-				<RichText
-					tagName="small"
-					value={ attributes.help.term }
-					onChange={ ( val ) => { 
-					    setAttributes({ help: { ...attributes.help, term: val } });
-					}}
-					placeholder={ __( 'Enter help message...', 'mortgage' ) }
-					allowedFormats= { allowedFormats }
-				/>
-			</div>
-			<div>
-				<RichText
-					tagName="label"
-					value={ attributes.label.frequency }
-					onChange={ ( val ) => { 
-					    setAttributes({ label: { ...attributes.label, frequency: val } });
-					}}
-					placeholder={ __( 'Enter label...', 'mortgage' ) }
-					allowedFormats={ [] }
-				/>
-				<select name="frequency">
-					<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
-					<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
-					<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
-					<option value="2">{ __( 'Semi-annually', 'mortgage' ) }</option>
-				</select>
-				<RichText
-					tagName="small"
-					value={ attributes.help.frequency }
-					onChange={ ( val ) => { 
-					    setAttributes({ help: { ...attributes.help, frequency: val } });
-					}}
-					placeholder={ __( 'Enter help message...', 'mortgage' ) }
-					allowedFormats= { allowedFormats }
-				/>
-			</div>
+			{
+				'duration' !== attributes.type &&
+				<div>
+					<RichText
+						tagName="label"
+						value={ attributes.label.term }
+						onChange={ ( val ) => { 
+						    setAttributes({ label: { ...attributes.label, term: val } });
+						}}
+						placeholder={ __( 'Term', 'mortgage' ) }
+						allowedFormats={ [] }
+					/>
+					<input 
+						type="number" 
+						placeholder={ attributes.placeholder.term } 
+						value={ attributes.defaults.term } 
+						onChange={ ( e ) => { 
+						    setAttributes({ defaults: { ...attributes.defaults, term: e.target.value } });
+						}}
+					/>
+					<RichText
+						tagName="small"
+						value={ attributes.help.term }
+						onChange={ ( val ) => { 
+						    setAttributes({ help: { ...attributes.help, term: val } });
+						}}
+						placeholder={ __( 'Enter help message...', 'mortgage' ) }
+						allowedFormats= { allowedFormats }
+					/>
+				</div>
+			}
+			{
+				'loan' === attributes.type &&
+				<div>
+					<RichText
+						tagName="label"
+						value={ attributes.label.frequency }
+						onChange={ ( val ) => { 
+						    setAttributes({ label: { ...attributes.label, frequency: val } });
+						}}
+						placeholder={ __( 'Enter label...', 'mortgage' ) }
+						allowedFormats={ [] }
+					/>
+					<select name="frequency">
+						<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
+						<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
+						<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
+						<option value="2">{ __( 'Half-yearly', 'mortgage' ) }</option>
+						<option value="1">{ __( 'Yearly', 'mortgage' ) }</option>
+					</select>
+					<RichText
+						tagName="small"
+						value={ attributes.help.frequency }
+						onChange={ ( val ) => { 
+						    setAttributes({ help: { ...attributes.help, frequency: val } });
+						}}
+						placeholder={ __( 'Enter help message...', 'mortgage' ) }
+						allowedFormats= { allowedFormats }
+					/>
+				</div>
+			}
+			{
+				'rates' === attributes.type &&
+				<div>
+					<RichText
+						tagName="label"
+						value={ attributes.label.increment }
+						onChange={ ( val ) => { 
+						    setAttributes({ label: { ...attributes.label, increment: val } });
+						}}
+						placeholder={ __( 'Increment', 'mortgage' ) }
+						allowedFormats={ [] }
+					/>
+					<select name="increment">
+						<option value="0.125">1/8%</option>
+						<option value="0.250">1/4%</option>
+						<option value="0.375">3/8%</option>
+						<option value="0.5">1/2%</option>
+						<option value="0.625">5/8%</option>
+						<option value="0.875">7/8%</option>
+						<option value="1">1%</option>
+					</select>
+					<RichText
+						tagName="small"
+						value={ attributes.help.increment }
+						onChange={ ( val ) => { 
+						    setAttributes({ help: { ...attributes.help, increment: val } });
+						}}
+						placeholder={ __( 'Enter help message...', 'mortgage' ) }
+						allowedFormats= { allowedFormats }
+					/>
+				</div>
+			}
 			<div>
 				{ children }
 			</div>

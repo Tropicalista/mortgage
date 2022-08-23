@@ -5,17 +5,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-mortgage-form {
-	display: flex;
-	flex-direction: column;
-}
-
-.wp-block-mortgage-form div {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1em;
-	align-items: flex-start;
-	flex-wrap: wrap;
+.wp-block-mortgage-form, .wp-block-mortgage-rates, .wp-block-mortgage-duration {
+	div {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1em;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
 	input, select, button {
 		padding: .5em;
 	}
