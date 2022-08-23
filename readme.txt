@@ -4,7 +4,7 @@ Donate link: 	   https://www.calcoloratamutuo.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
 Tested up to:      6.0.1
-Stable tag:        0.2.5
+Stable tag:        0.2.6
 Requires PHP:      5.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,9 @@ With this block you can create a form to calculate a loan mortgage in less than 
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.2.6 =
+* Bump version
 
 = 0.2.5 =
 * Fix table on frontend
