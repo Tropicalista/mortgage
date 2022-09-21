@@ -1,8 +1,8 @@
 import { __ } from '@wordpress/i18n';
 
-import { 
-	useEffect, 
-	Fragment 
+import {
+	useEffect,
+	Fragment
 } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import Settings from '../components/settings';
@@ -57,24 +57,24 @@ export default function Edit( props ) {
 				<RichText
 					tagName="label"
 					value={ attributes.label.amount }
-					onChange={ ( val ) => { 
+					onChange={ ( val ) => {
 					    setAttributes({ label: { ...attributes.label, amount: val } });
 					}}
 					placeholder={ __( 'Enter label...', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input 
-					type="number" 
-					placeholder={ attributes.placeholder.amount } 
-					value={ attributes.defaults.amount } 
-					onChange={ ( e ) => { 
+				<input
+					type="number"
+					placeholder={ attributes.placeholder.amount }
+					value={ attributes.defaults.amount }
+					onChange={ ( e ) => {
 					    setAttributes({ defaults: { ...attributes.defaults, amount: e.target.value } });
 					}}
 				/>
 				<RichText
 					tagName="small"
 					value={ attributes.help.amount }
-					onChange={ ( val ) => { 
+					onChange={ ( val ) => {
 					    setAttributes({ help: { ...attributes.help, amount: val } });
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
@@ -85,24 +85,24 @@ export default function Edit( props ) {
 				<RichText
 					tagName="label"
 					value={ attributes.label.rate }
-					onChange={ ( val ) => { 
+					onChange={ ( val ) => {
 					    setAttributes({ label: { ...attributes.label, rate: val } });
 					}}
 					placeholder={ __( 'Rate', 'mortgage' ) }
 					allowedFormats={ [] }
 				/>
-				<input 
-					type="number" 
-					placeholder={ attributes.placeholder.rate } 
-					value={ attributes.defaults.rate } 
-					onChange={ ( e ) => { 
+				<input
+					type="number"
+					placeholder={ attributes.placeholder.rate }
+					value={ attributes.defaults.rate }
+					onChange={ ( e ) => {
 					    setAttributes({ defaults: { ...attributes.defaults, rate: e.target.value } });
 					}}
 				/>
 				<RichText
 					tagName="small"
 					value={ attributes.help.rate }
-					onChange={ ( val ) => { 
+					onChange={ ( val ) => {
 					    setAttributes({ help: { ...attributes.help, rate: val } });
 					}}
 					placeholder={ __( 'Enter help message...', 'mortgage' ) }
@@ -115,24 +115,24 @@ export default function Edit( props ) {
 					<RichText
 						tagName="label"
 						value={ attributes.label.term }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ label: { ...attributes.label, term: val } });
 						}}
 						placeholder={ __( 'Term', 'mortgage' ) }
 						allowedFormats={ [] }
 					/>
-					<input 
-						type="number" 
-						placeholder={ attributes.placeholder.term } 
-						value={ attributes.defaults.term } 
-						onChange={ ( e ) => { 
+					<input
+						type="number"
+						placeholder={ attributes.placeholder.term }
+						value={ attributes.defaults.term }
+						onChange={ ( e ) => {
 						    setAttributes({ defaults: { ...attributes.defaults, term: e.target.value } });
 						}}
 					/>
 					<RichText
 						tagName="small"
 						value={ attributes.help.term }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ help: { ...attributes.help, term: val } });
 						}}
 						placeholder={ __( 'Enter help message...', 'mortgage' ) }
@@ -146,13 +146,15 @@ export default function Edit( props ) {
 					<RichText
 						tagName="label"
 						value={ attributes.label.frequency }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ label: { ...attributes.label, frequency: val } });
 						}}
 						placeholder={ __( 'Enter label...', 'mortgage' ) }
 						allowedFormats={ [] }
 					/>
 					<select name="frequency">
+						<option value="52">{ __( 'Weekly', 'mortgage' ) }</option>
+						<option value="26">{ __( 'Fortnightly', 'mortgage' ) }</option>
 						<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
 						<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
 						<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
@@ -162,7 +164,7 @@ export default function Edit( props ) {
 					<RichText
 						tagName="small"
 						value={ attributes.help.frequency }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ help: { ...attributes.help, frequency: val } });
 						}}
 						placeholder={ __( 'Enter help message...', 'mortgage' ) }
@@ -176,7 +178,7 @@ export default function Edit( props ) {
 					<RichText
 						tagName="label"
 						value={ attributes.label.increment }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ label: { ...attributes.label, increment: val } });
 						}}
 						placeholder={ __( 'Increment', 'mortgage' ) }
@@ -194,7 +196,7 @@ export default function Edit( props ) {
 					<RichText
 						tagName="small"
 						value={ attributes.help.increment }
-						onChange={ ( val ) => { 
+						onChange={ ( val ) => {
 						    setAttributes({ help: { ...attributes.help, increment: val } });
 						}}
 						placeholder={ __( 'Enter help message...', 'mortgage' ) }

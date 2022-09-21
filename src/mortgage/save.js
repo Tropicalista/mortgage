@@ -28,9 +28,9 @@ export default function save( { attributes, className } ) {
     const innerBlocksProps = useInnerBlocksProps.save( blockProps );
 
 	return (
-		<form { ...blockProps } noValidate 
-			data-currency={ attributes.currency } 
-			data-yearSummary={ attributes.yearSummary } 
+		<form { ...blockProps } noValidate
+			data-currency={ attributes.currency }
+			data-yearSummary={ attributes.yearSummary }
 			data-showTable={ attributes.showTable }
 			data-type={ attributes.type }
 		>
@@ -67,6 +67,8 @@ export default function save( { attributes, className } ) {
 				<div>
 					<RichText.Content tagName="label" value={ attributes.label.frequency } />
 					<select name="frequency">
+						<option value="52">{ __( 'Weekly', 'mortgage' ) }</option>
+						<option value="26">{ __( 'Fortnightly', 'mortgage' ) }</option>
 						<option value="12">{ __( 'Monthly', 'mortgage' ) }</option>
 						<option value="6">{ __( 'Bi-Monthly', 'mortgage' ) }</option>
 						<option value="4">{ __( 'Quarterly', 'mortgage' ) }</option>
@@ -78,7 +80,7 @@ export default function save( { attributes, className } ) {
 						<RichText.Content tagName="small" value={ attributes.help.frequency } />
 					}
 				</div>
-			}		
+			}
 			{
 				'rates' === attributes.type &&
 				<div>
