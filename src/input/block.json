@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mortgage/input",
+	"ancestor": ["mortgage/form"],
+	"title": "Number input",
+	"textdomain": "mortgage",
+	"attributes": {
+	    "lock": {
+	        "type": "object",
+	        "default": {
+	            "move": false,
+	            "remove": true
+	        }
+	    },
+		"label": {
+			"type": "string",
+			"default": "Calculate"
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"value": {
+			"type": "number"
+		},
+		"placeholder": {
+			"type": "number"
+		},
+		"readOnly": {
+			"type": "boolean",
+			"default": 0
+		},
+		"min": {
+			"type": "number",
+			"default": 0
+		},
+		"max": {
+			"type": "number"
+		},
+		"step": {
+			"type": "number"
+		},
+		"showHelp": {
+			"type": "boolean",
+			"default": false
+		},
+		"help": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"multiple": true,
+		"reusable": true,
+		"className": true,
+		"lock": false
+	}
+}

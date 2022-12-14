@@ -36,34 +36,7 @@ const { name, attributes } = metadata;
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( name, {
-	/**
-	 * @see https://make.wordpress.org/core/2020/11/18/block-api-version-2/
-	 */
-	apiVersion: 2,
-
-	/**
-	 * This is the display title for your block, which can be translated with `i18n` functions.
-	 * The block inserter will show this name.
-	 */
-	title: __( 'Mortgage', 'mortgage' ),
-
-	/**
-	 * This is a short description for your block, can be translated with `i18n` functions.
-	 * It will be shown in the Block Tab in the Settings Sidebar.
-	 */
-	description: __(
-		'A block to generate a very simple and easy to use mortgage calculator form.',
-		'mortgage'
-	),
-
-	/**
-	 * Blocks are grouped into categories to help users browse and discover them.
-	 * The categories provided by core are `text`, `media`, `design`, `widgets`, and `embed`.
-	 */
-	category: 'widgets',
-
-	attributes,
+registerBlockType( metadata, {
 
 	variations,
 

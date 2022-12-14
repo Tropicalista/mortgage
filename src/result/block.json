@@ -1,16 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "mortgage/button",
-	"ancestor": ["mortgage/form"],
-	"title": "Button",
+	"name": "mortgage/result",
+	"title": "Result",
 	"icon": "button",
 	"textdomain": "mortgage",
 	"attributes": {
 	    "lock": {
 	        "type": "object",
 	        "default": {
-	            "move": true,
+	            "move": false,
 	            "remove": true
 	        }
 	    },
@@ -18,32 +17,32 @@
 			"type": "string",
 			"default": "Calculate"
 		},
-		"alignment": {
-			"type": "string",
-			"default": "left"
-		},
 		"style": {
 			"type": "object",
 			"default": {
 				"color": {
-					"background": "#000000",
-					"text": "#ffffff"
+					"background": "#dff0d8",
+					"text": "#3c763d"
+				},
+				"border": {
+					"style": "solid",
+					"width": "1px",
+					"color": "green"
 				}
 			}
 		}
 	},
 	"supports": {
-		"html": false,
-		"lock": false,
 		"multiple": false,
 		"reusable": false,
-		"className": false,
+		"className": true,
+		"__experimentalBorder": true,
 		"color": {
 			"background": true,
 			"text": true,
 			"gradients": true
 		},
-		"__experimentalBorder": true,
+		"lock": false,
 		"spacing": {
 			"padding": true,
 			"__experimentalDefaultControls": {

@@ -1,5 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": "2",
 	"name": "mortgage/form",
 	"title": "Mortgage",
@@ -31,9 +30,6 @@
 		"yearSummary": { 
 			"type": "boolean",
 			"default": false
-		},
-		"type": {
-			"enum": ["loan", "rates", "duration"]
 		}	
 	},
 	"styles": [

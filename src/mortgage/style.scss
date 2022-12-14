@@ -5,7 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-mortgage-form, .wp-block-mortgage-rates, .wp-block-mortgage-duration {
+.wp-block-mortgage-form {
 	div {
 		display: flex;
 		flex-direction: column;
@@ -26,6 +26,15 @@
 	button {
 		margin: 0 !important;
 		border: none;
+		&.right {
+			align-self: flex-end;
+		}
+		&.center {
+			align-self: center;
+		}
+		&.wide {
+			width: 100%;
+		}
 	}
 }
 
@@ -37,7 +46,7 @@
 
 .wp-block-mortgage-result, .wp-block-mortgage-summary {
 	padding: .75rem 1.25rem;
-	margin-bottom: 1rem;
+	margin: 1rem 0;
 	border: 1px solid transparent;
 	&.success {
 		background-color: #dff0d8;

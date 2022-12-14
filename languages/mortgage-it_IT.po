@@ -2,19 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mortgage 0.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/mortgage\n"
-"POT-Creation-Date: 2022-08-23T21:52:13+02:00\n"
-"PO-Revision-Date: 2022-08-23 21:57+0200\n"
+"POT-Creation-Date: 2022-12-14T20:08:32+01:00\n"
+"PO-Revision-Date: 2022-12-14 20:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Domain: mortgage\n"
 
 #. Plugin Name of the plugin
-#: build/index.js:1000 src/mortgage/index.js:49
 msgid "Mortgage"
 msgstr "Ammortamento"
 
@@ -44,8 +43,7 @@ msgstr "Tasso d'interesse"
 msgid "Number of payments"
 msgstr "Numero di pagamenti"
 
-#: build/frontend.js:1194 build/frontend.js:1307 src/calculator.js:43
-#: src/calculator.js:150
+#: build/frontend.js:1194 src/calculator.js:43
 msgid "Recurring payment"
 msgstr "Pagamento ricorrente"
 
@@ -61,9 +59,10 @@ msgstr "Totale dopo l'anno "
 msgid "Interests paid after year "
 msgstr "Interessi pagati dopo l'anno "
 
-#: build/frontend.js:1271 build/frontend.js:1305 build/frontend.js:1335
-#: build/frontend.js:1370 src/calculator.js:101 src/calculator.js:143
-#: src/calculator.js:177 src/calculator.js:218
+#: build/frontend.js:1271 build/frontend.js:1305 build/frontend.js:1307
+#: build/frontend.js:1336 build/frontend.js:1371 src/calculator.js:101
+#: src/calculator.js:143 src/calculator.js:150 src/calculator.js:177
+#: src/calculator.js:218 src/result/edit.js:33
 msgid "Installment"
 msgstr "Rata"
 
@@ -82,132 +81,178 @@ msgstr "Capitale"
 msgid "Balance"
 msgstr "Saldo"
 
-#: build/frontend.js:1335 build/index.js:1193 src/calculator.js:176
-#: src/mortgage/variations.js:15
+#: build/frontend.js:1336 build/index.js:1159 src/calculator.js:176
+#: src/mortgage/variations.js:54
 msgid "Duration"
 msgstr "Durata"
 
-#: build/frontend.js:1335 build/frontend.js:1370 src/calculator.js:178
+#: build/frontend.js:1336 build/frontend.js:1371 src/calculator.js:178
 #: src/calculator.js:218
 msgid "Interests"
 msgstr "Interessi"
 
-#: build/frontend.js:1335 build/frontend.js:1370 src/calculator.js:179
+#: build/frontend.js:1336 build/frontend.js:1371 src/calculator.js:179
 #: src/calculator.js:218
 msgid "Total"
 msgstr "Totale"
 
-#: build/frontend.js:1341 src/calculator.js:187
+#: build/frontend.js:1342 src/calculator.js:187
 msgid " Years"
 msgstr " Anni"
 
-#: build/frontend.js:1370 build/index.js:639 build/index.js:791
-#: src/calculator.js:218 src/components/settings.js:74 src/mortgage/edit.js:91
+#: build/frontend.js:1371 build/index.js:907 build/index.js:1119
+#: build/index.js:1171 src/calculator.js:218 src/mortgage/edit.js:33
+#: src/mortgage/variations.js:22 src/mortgage/variations.js:68
 msgid "Rate"
 msgstr "Tasso"
 
-#: build/index.js:459 src/button/edit.js:86
+#: build/index.js:432 src/button/edit.js:86
 msgid "Enter button text…"
 msgstr "Inserire il testo del pulsante…"
 
-#: build/index.js:599 src/components/settings.js:45
+#: build/index.js:560 src/components/settings.js:35
 msgid "Form"
 msgstr "Form"
 
-#: build/index.js:602 src/components/settings.js:47
+#: build/index.js:563 src/components/settings.js:37
 msgid "Currency symbol"
 msgstr "Simbolo di valuta"
 
-#: build/index.js:610 src/components/settings.js:55
+#: build/index.js:571 src/components/settings.js:42
 msgid "Show table"
 msgstr "Mostra tabella"
 
-#: build/index.js:618 src/components/settings.js:60
+#: build/index.js:579 src/components/settings.js:47
 msgid "Show year summary"
 msgstr "Mostra riepilogo annuale"
 
-#: build/index.js:626 src/components/settings.js:67
-msgid "Placeholders"
-msgstr "Segnaposti"
+#: build/index.js:677 src/input/edit.js:43
+msgid "Placeholder"
+msgstr "Segnaposto"
 
-#: build/index.js:629 src/components/settings.js:69
-msgid "Amount"
-msgstr "Importo"
+#: build/index.js:686 src/input/edit.js:51
+msgid "Read Only"
+msgstr "Solo lettura"
 
-#: build/index.js:649 build/index.js:826 src/components/settings.js:81
-#: src/mortgage/edit.js:121
-msgid "Term"
-msgstr "Durata"
+#: build/index.js:694 src/input/edit.js:58
+msgid "Min"
+msgstr "Min"
 
-#: build/index.js:756 build/index.js:861 src/mortgage/edit.js:63
-#: src/mortgage/edit.js:152
+#: build/index.js:696 src/input/edit.js:60
+msgid "Set minimum value"
+msgstr "Imposta il valore minimo"
+
+#: build/index.js:705 src/input/edit.js:68
+msgid "Max"
+msgstr "Max"
+
+#: build/index.js:706 src/input/edit.js:69
+msgid "Set maximum value"
+msgstr "Imposta il valore massimo"
+
+#: build/index.js:717 src/input/edit.js:79
+msgid "Step"
+msgstr "Step"
+
+#: build/index.js:718 src/input/edit.js:80
+msgid "Set step value"
+msgstr "Imposta il valore di incremento"
+
+#: build/index.js:735 src/input/edit.js:96
 msgid "Enter label..."
 msgstr "Inserisci etichetta..."
 
-#: build/index.js:779 build/index.js:814 build/index.js:849 build/index.js:885
-#: build/index.js:925 src/mortgage/edit.js:80 src/mortgage/edit.js:108
-#: src/mortgage/edit.js:138 src/mortgage/edit.js:168 src/mortgage/edit.js:200
+#: build/index.js:760 build/index.js:1290 src/input/edit.js:121
+#: src/select/edit.js:76
 msgid "Enter help message..."
 msgstr "Inserisci messaggio di aiuto..."
 
-#: build/index.js:867 build/index.js:1135 src/mortgage/edit.js:156
-#: src/mortgage/save.js:70
+#: build/index.js:902 build/index.js:1113 build/index.js:1166
+#: src/mortgage/edit.js:27 src/mortgage/variations.js:15
+#: src/mortgage/variations.js:62
+msgid "Amount"
+msgstr "Importo"
+
+#: build/index.js:913 build/index.js:1125 src/mortgage/edit.js:40
+#: src/mortgage/variations.js:29
+msgid "Term"
+msgstr "Durata"
+
+#: build/index.js:918 src/mortgage/edit.js:46
+msgid "Frequency"
+msgstr "Frequenza"
+
+#: build/index.js:921 src/mortgage/edit.js:48
+msgid "Weekly"
+msgstr "Settimanale"
+
+#: build/index.js:924 src/mortgage/edit.js:49
+msgid "Fortnightly"
+msgstr "Quindicinale"
+
+#: build/index.js:927 src/mortgage/edit.js:50
 msgid "Monthly"
 msgstr "Mensile"
 
-#: build/index.js:869 build/index.js:1137 src/mortgage/edit.js:157
-#: src/mortgage/save.js:71
+#: build/index.js:930 src/mortgage/edit.js:51
 msgid "Bi-Monthly"
 msgstr "Bimensile"
 
-#: build/index.js:871 build/index.js:1139 src/mortgage/edit.js:158
-#: src/mortgage/save.js:72
+#: build/index.js:933 src/mortgage/edit.js:52
 msgid "Quarterly"
 msgstr "Trimestrale"
 
-#: build/index.js:873 src/mortgage/edit.js:159
+#: build/index.js:936 src/mortgage/edit.js:53
 msgid "Half-yearly"
 msgstr "Semestrale"
 
-#: build/index.js:875 src/mortgage/edit.js:160
+#: build/index.js:939 src/mortgage/edit.js:54
 msgid "Yearly"
 msgstr "Annuale"
 
-#: build/index.js:897 src/mortgage/edit.js:182
-msgid "Increment"
-msgstr "Incremento"
+#: build/index.js:942 build/index.js:1153 build/index.js:1176
+#: src/mortgage/edit.js:58 src/mortgage/variations.js:46
+#: src/mortgage/variations.js:74
+msgid "Calculate"
+msgstr "Calcola"
 
-#: build/index.js:1006 src/mortgage/index.js:55
-msgid ""
-"A block to generate a very simple and easy to use mortgage calculator form."
-msgstr ""
-"Un blocco per generare un form per il calcolo dell'ammortamento semplice e "
-"veloce."
+#: build/index.js:1105 src/mortgage/variations.js:6
+msgid "Rates Comparator"
+msgstr "Comparatore Tassi"
 
-#: build/index.js:1141 src/mortgage/save.js:73
-msgid "Semi-annually"
-msgstr "Semestrale"
-
-#: build/index.js:1185 src/mortgage/variations.js:6
+#: build/index.js:1106 src/mortgage/variations.js:7
 msgid "Rates"
 msgstr "Tassi"
 
-#: block.json
+#: build/index.js:1129 build/index.js:1272 src/mortgage/variations.js:34
+#: src/select/edit.js:58
+msgid "Increment"
+msgstr "Incremento"
+
+#: build/index.js:1158 src/mortgage/variations.js:53
+msgid "Duration Comparator"
+msgstr "Comparatore Durata"
+
+#: build/index.js:1256 src/select/edit.js:43
+msgid "Default value"
+msgstr "Valore di default"
+
+#: block.json src/mortgage/block.json
 msgctxt "block title"
 msgid "Mortgage"
 msgstr "Ammortamento"
 
-#: block.json
+#: block.json src/mortgage/block.json
 msgctxt "block description"
 msgid "A block to generate a mortgage calculator form."
 msgstr "Un blocco per generare un form per il calcolo dell'ammortamento."
 
-#: block.json
+#: block.json src/mortgage/block.json
 msgctxt "block style label"
 msgid "Default"
 msgstr "Default"
 
-#: block.json
+#: block.json src/mortgage/block.json
 msgctxt "block style label"
 msgid "Bolded label"
 msgstr "Etichetta evidenziata"
@@ -217,20 +262,37 @@ msgctxt "block title"
 msgid "Button"
 msgstr "Bottone"
 
+#: src/input/block.json
+msgctxt "block title"
+msgid "Number input"
+msgstr "Input numero"
+
+#: src/result/block.json
+msgctxt "block title"
+msgid "Result"
+msgstr "Risultato"
+
+#: src/select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr "Select"
+
+#~ msgid "Placeholders"
+#~ msgstr "Opzioni per i segnaposto"
+
+#~ msgid ""
+#~ "A block to generate a very simple and easy to use mortgage calculator "
+#~ "form."
+#~ msgstr "Un blocco per generare un form per il calcolo dell'ammortamento."
+
+#~ msgid "Semi-annually"
+#~ msgstr "Semestrale"
+
 #~ msgid "Form Options"
 #~ msgstr "Opzioni Form"
 
-#~ msgid "Placeholder Options"
-#~ msgstr "Opzioni per i segnaposto"
-
-#~ msgid "Amount Placeholder"
-#~ msgstr "Segnaposto Capitale"
-
 #~ msgid "Payment"
 #~ msgstr "Pagamento"
-
-#~ msgid "Default Values"
-#~ msgstr "Valori di default"
 
 #~ msgid "Amount Default Value"
 #~ msgstr "Valore di default capitale"

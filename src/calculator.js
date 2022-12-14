@@ -147,7 +147,7 @@ export default class Calculator {
 		];
 
 		resultDiv.className = 'wp-block-mortgage-result success'
-		resultDiv.innerHTML = '<p>' + __( 'Recurring payment', 'mortgage' ) + ': <b>' + this.formatNumber(this.result) + '</b></p>'
+		resultDiv.innerHTML = '<p>' + __( 'Installment', 'mortgage' ) + ': <b>' + this.formatNumber( this.result ) + '</b></p>'
 		summaryDiv.className = 'wp-block-mortgage-summary'
 		summaryDiv.innerHTML = this.summary() 
 
@@ -158,7 +158,7 @@ export default class Calculator {
 			tableDiv.appendChild( table )
 			elm.after( tableDiv )
 		}
-
+console.log(elm)
 		elm.after( summaryDiv );
 		elm.after( resultDiv );
 
@@ -259,7 +259,7 @@ export default class Calculator {
 				this.durationResponse( elm )
 				break;
 			default: 
-
+				this.loanResponse( elm )
 		}
 	}
 
