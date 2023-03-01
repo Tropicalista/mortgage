@@ -5,6 +5,9 @@ import Settings from '../components/settings';
 import {
 	useBlockProps,
 	useInnerBlocksProps,
+	InspectorControls,
+	PanelColorSettings,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 } from '@wordpress/block-editor';
 
 /**

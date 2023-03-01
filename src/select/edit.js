@@ -58,7 +58,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				placeholder={ __( 'Increment', 'mortgage' ) }
 				allowedFormats={ [] }
 			/>
-			<select name="increment" value={ defaultValue }>
+			<select name="increment" value={ defaultValue } onChange={ () => console.log('ciao') }>
 				{
 					values.map( (i) => (
 						<option key={ i.label } value={ i.value }>{ i.label }</option>

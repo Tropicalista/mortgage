@@ -4,7 +4,7 @@ import {
 	RichText,
 } from '@wordpress/block-editor';
 
-export default function save( { attributes } ) {
+export default function save( { attributes, className } ) {
 	const {
 		label,
 		name,
@@ -20,7 +20,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save();
 
 	return (
-		<div>
+		<div { ...blockProps }>
 			<RichText.Content tagName="label" value={ label } />
 			<input type="number" 
 				name={ name } 

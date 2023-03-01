@@ -16,7 +16,7 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save();
 
 	return (
-		<div>
+		<div { ...blockProps }>
 			<RichText.Content
 				tagName="label"
 				value={ label }

@@ -6,7 +6,7 @@
  */
 
 .wp-block-mortgage-form {
-	div {
+	.wp-block-mortgage-input, .wp-block-mortgage-select {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 1em;
@@ -15,6 +15,7 @@
 	}
 	input, select, button {
 		padding: .5em;
+		box-sizing: border-box;
 	}
 	input, select {
 		width: 100%;
@@ -44,10 +45,22 @@
 	}
 }
 
+.wp-block-mortgage-form.is-style-modern {
+	label {
+		font-weight: bold;
+	}
+	input, select {
+		border: none;
+		border-bottom: 1px solid;
+	}
+}
+
 .wp-block-mortgage-result, .wp-block-mortgage-summary {
 	padding: .75rem 1.25rem;
 	margin: 1rem 0;
 	border: 1px solid transparent;
+	order: 3;
+	width: 100%;
 	&.success {
 		background-color: #dff0d8;
 		border-color: #d0e9c6;
@@ -67,6 +80,8 @@
 }
 
 .wp-block-mortgage-table {
+	order: 3;
+	width: 100%;
 	overflow-x: auto;
 	small {
 		margin: 0 5px;

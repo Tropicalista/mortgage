@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": "2",
+	"apiVersion": 2,
 	"name": "mortgage/form",
 	"title": "Mortgage",
 	"category": "widgets",
@@ -8,18 +8,11 @@
 	"description": "A block to generate a mortgage calculator form.",
 	"supports": {
 		"html": true,
-		"lock": true,
 		"reusable": true,
-		"className": true
+		"className": true,
+		"color": true
 	},
 	"attributes": {
-	    "lock": {
-	        "type": "object",
-	        "default": {
-	            "move": true,
-	            "remove": false
-	        }
-	    },
 		"currency": { 
 			"type": "string",
 			"default": "$"
@@ -42,7 +35,8 @@
 			"label": "Default",
 			"isDefault": true
 		},
-		{ "name": "bolded", "label": "Bolded label" }
+		{ "name": "bolded", "label": "Bolded label" },
+		{ "name": "modern", "label": "Modern" }
 	],
 	"textdomain": "mortgage",
 	"editorScript": "file:./build/index.js",

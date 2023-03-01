@@ -2,13 +2,58 @@ import { __ } from '@wordpress/i18n';
 
 const variations = [
 	{
+		name: 'default',
+		title: __( 'Mortgage calculator', 'mortgage' ),
+		description: __( 'Test', 'mortgage' ),
+		icon: 'calculator',
+		innerBlocks: [
+			[ 'mortgage/input', {
+				name: 'amount',
+				label: __( 'Amount', 'mortgage' ),
+				value: 10000,
+				min: 0,
+				max: ''
+			} ],
+			[ 'mortgage/input', {
+				name: 'rate',
+				label: __( 'Rate', 'mortgage' ),
+				value: 4,
+				min: 0,
+				step: 0.01
+			} ],
+			[ 'mortgage/input', {
+				name: 'term',
+				label: __( 'Term', 'mortgage' ),
+				value: 10
+			} ],
+			[ 'mortgage/select', {
+				name: 'frequency',
+				label: __( 'Frequency', 'mortgage' ),
+				values: [
+					{ value: 52, label: __( 'Weekly', 'mortgage' ) },
+					{ value: 26, label: __( 'Fortnightly', 'mortgage' ) },
+					{ value: 12, label: __( 'Monthly', 'mortgage' ) },
+					{ value: 6, label: __( 'Bi-Monthly', 'mortgage' ) },
+					{ value: 4, label: __( 'Quarterly', 'mortgage' ) },
+					{ value: 2, label: __( 'Half-yearly', 'mortgage' ) },
+					{ value: 1, label: __( 'Yearly', 'mortgage' ) },
+				]
+			} ],
+			[ 'mortgage/button', {
+				text: __( 'Calculate', 'mortgage' ),
+			} ]
+		],
+		attributes: {
+			type: 'loan'
+		},
+		scope: [ 'block', 'inserter' ],
+		isDefault: true
+	},
+	{
 		name: 'rates',
 		title: __( 'Rates Comparator', 'mortgage' ),
 		description: __( 'Rates', 'mortgage' ),
 		icon: 'calculator',
-		attributes: {
-			type: 'rates',
-		},
 		innerBlocks: [
 			[ 'mortgage/input', {
 				name: 'amount',
@@ -46,16 +91,17 @@ const variations = [
 				text: __( 'Calculate', 'mortgage' ),
 			} ],
 		],
+		attributes: {
+			type: 'rates'
+		},
 		scope: [ 'block', 'inserter' ],
+		isDefault: true
 	},
 	{
 		name: 'duration',
 		title: __( 'Duration Comparator', 'mortgage' ),
 		description: __( 'Duration', 'mortgage' ),
 		icon: 'calculator',
-		attributes: {
-			type: 'duration',
-		},
 		innerBlocks: [
 			[ 'mortgage/input', {
 				name: 'amount',
@@ -74,7 +120,11 @@ const variations = [
 				text: __( 'Calculate', 'mortgage' ),
 			} ],
 		],
+		attributes: {
+			type: 'duration'
+		},
 		scope: [ 'block', 'inserter' ],
+		isDefault: true
 	},
 ];
 

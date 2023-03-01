@@ -13,33 +13,67 @@
 	            "remove": true
 	        }
 	    },
-		"label": {
+		"type": {
 			"type": "string",
-			"default": "Calculate"
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "type",
+			"default": "text"
+		},
+		"id": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "id",
+			"default": ""
 		},
 		"name": {
 			"type": "string",
-			"default": ""
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "name"
 		},
-		"value": {
-			"type": "number"
+		"label": {
+			"type": "string",
+			"source": "html",
+			"selector": "label",
+			"default": "My input"
 		},
 		"placeholder": {
-			"type": "number"
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "placeholder"
+		},
+		"value": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "value"
 		},
 		"readOnly": {
 			"type": "boolean",
-			"default": 0
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "readonly"
 		},
 		"min": {
-			"type": "number",
-			"default": 0
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "min"
 		},
 		"max": {
-			"type": "number"
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "max"
 		},
 		"step": {
-			"type": "number"
+			"type": "string",
+			"source": "attribute",
+			"selector": "input",
+			"attribute": "step"
 		},
 		"showHelp": {
 			"type": "boolean",
@@ -47,12 +81,13 @@
 		},
 		"help": {
 			"type": "string",
-			"default": ""
+			"source": "html",
+			"selector": "small"
 		}
 	},
 	"supports": {
 		"multiple": true,
-		"reusable": true,
+		"reusable": false,
 		"className": true,
 		"lock": false
 	}

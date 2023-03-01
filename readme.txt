@@ -4,7 +4,7 @@ Donate link: 	   https://www.calcoloratamutuo.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
 Tested up to:      6.1.1
-Stable tag:        0.2.7
+Stable tag:        0.2.8
 Requires PHP:      5.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -31,12 +31,26 @@ With this block you can create a form to calculate a loan mortgage in less than 
 4. Frontend form with result
 5. Frontend form with result table
 
+== WHAT’S NEXT ==
+
+If you like this plugin, then consider checking out our other projects:
+
+* [Formello](https://wordpress.org/plugins/formello): a form builder to collect leads, newsletter signup, contact form and more.
+* [Popper](https://wordpress.org/plugins/popper): a popup builder to increase leads with exit intent.
+* [Pdf Embed](https://wordpress.org/plugins/pdf-embed): embed your PDFs using the official Adobe Embed API.
+* [Search Console](https://wordpress.org/plugins/search-console): view all your search console data inside WordPress admin.
+
+
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/mortgage` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.2.8 =
+* Improved column positioning
+* Added read only to fields
 
 = 0.2.7 =
 * Added form input
