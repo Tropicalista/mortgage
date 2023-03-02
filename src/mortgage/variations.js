@@ -4,7 +4,6 @@ const variations = [
 	{
 		name: 'default',
 		title: __( 'Mortgage calculator', 'mortgage' ),
-		description: __( 'Test', 'mortgage' ),
 		icon: 'calculator',
 		innerBlocks: [
 			[ 'mortgage/input', {
@@ -52,7 +51,6 @@ const variations = [
 	{
 		name: 'rates',
 		title: __( 'Rates Comparator', 'mortgage' ),
-		description: __( 'Rates', 'mortgage' ),
 		icon: 'calculator',
 		innerBlocks: [
 			[ 'mortgage/input', {
@@ -100,7 +98,6 @@ const variations = [
 	{
 		name: 'duration',
 		title: __( 'Duration Comparator', 'mortgage' ),
-		description: __( 'Duration', 'mortgage' ),
 		icon: 'calculator',
 		innerBlocks: [
 			[ 'mortgage/input', {

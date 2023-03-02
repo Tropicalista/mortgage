@@ -25,13 +25,12 @@
 		width: 100%;
 	}
 	button {
-		margin: 0 !important;
-		border: none;
+		display: block;
 		&.right {
-			align-self: flex-end;
+			margin-left: auto;
 		}
 		&.center {
-			align-self: center;
+			margin: auto;
 		}
 		&.wide {
 			width: 100%;
@@ -52,6 +51,7 @@
 	input, select {
 		border: none;
 		border-bottom: 1px solid;
+		border-radius: 0;
 	}
 }
 

@@ -20,17 +20,17 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const ALIGNMENT_CONTROLS = [
 		{
-			icon: 'editor-alignleft',
+			icon: 'align-left',
 			title: __( 'Align Button Left', 'formello' ),
 			align: 'left',
 		},
 		{
-			icon: 'editor-aligncenter',
+			icon: 'align-center',
 			title: __( 'Align Button Center', 'formello' ),
 			align: 'center',
 		},
 		{
-			icon: 'editor-alignright',
+			icon: 'align-right',
 			title: __( 'Align Button Right', 'formello' ),
 			align: 'right',
 		},

@@ -27,7 +27,6 @@ export default class Calculator {
 			this[key] = parseFloat( value )
 		}
 		this.rate = this.rate/100;
-	    console.log(this)
 	}
 
 	payment() {
@@ -158,7 +157,7 @@ export default class Calculator {
 			tableDiv.appendChild( table )
 			elm.after( tableDiv )
 		}
-console.log(elm)
+
 		elm.after( summaryDiv );
 		elm.after( resultDiv );
 
