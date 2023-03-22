@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "mortgage/result",
+  "title": "Result",
+  "icon": "button",
+  "textdomain": "mortgage",
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "move": false,
+        "remove": true
+      }
+    },
+    "text": {
+      "type": "string",
+      "default": "Calculate"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "#dff0d8",
+          "text": "#3c763d"
+        },
+        "border": {
+          "style": "solid",
+          "width": "1px",
+          "color": "green"
+        }
+      }
+    }
+  },
+  "supports": {
+    "multiple": false,
+    "reusable": false,
+    "className": true,
+    "__experimentalBorder": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "lock": false,
+    "spacing": {
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    }
+  }
+}

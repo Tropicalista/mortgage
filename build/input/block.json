@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "mortgage/input",
+  "ancestor": [
+    "mortgage/form"
+  ],
+  "title": "Number input",
+  "textdomain": "mortgage",
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "move": false,
+        "remove": true
+      }
+    },
+    "type": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "type",
+      "default": "text"
+    },
+    "id": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "id",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "name"
+    },
+    "hideLabel": {
+      "type": "boolean",
+      "selector": "label.hide",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "source": "html",
+      "selector": "label",
+      "default": "My input"
+    },
+    "placeholder": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "placeholder"
+    },
+    "value": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "value"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "readonly"
+    },
+    "min": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "min"
+    },
+    "max": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "max"
+    },
+    "step": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "step"
+    },
+    "showHelp": {
+      "type": "boolean",
+      "default": false
+    },
+    "help": {
+      "type": "string",
+      "source": "html",
+      "selector": "small"
+    }
+  },
+  "supports": {
+    "multiple": true,
+    "reusable": false,
+    "className": true,
+    "lock": false
+  }
+}

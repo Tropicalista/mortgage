@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "mortgage/select",
+  "ancestor": [
+    "mortgage/form"
+  ],
+  "title": "Select",
+  "textdomain": "mortgage",
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "move": false,
+        "remove": true
+      }
+    },
+    "hide": {
+      "type": "boolean",
+      "selector": "div.hide",
+      "default": false
+    },
+    "hideLabel": {
+      "type": "boolean",
+      "selector": "label.hide",
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "default": "Calculate"
+    },
+    "name": {
+      "type": "string",
+      "default": ""
+    },
+    "values": {
+      "type": "array"
+    },
+    "showHelp": {
+      "type": "boolean",
+      "default": false
+    },
+    "help": {
+      "type": "string",
+      "default": ""
+    },
+    "defaultValue": {
+      "type": "number",
+      "default": ""
+    }
+  },
+  "supports": {
+    "multiple": false,
+    "reusable": false,
+    "className": true,
+    "lock": false
+  }
+}

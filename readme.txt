@@ -4,7 +4,7 @@ Donate link: 	   https://www.calcoloratamutuo.net
 Tags:              mortgage, calculator, mortgage calculator, mortgage calculator block, block
 Requires at least: 5.6.0
 Tested up to:      6.1.1
-Stable tag:        0.2.9
+Stable tag:        0.3.0
 Requires PHP:      5.6
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,6 +47,12 @@ If you like this plugin, then consider checking out our other projects:
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.3.0 =
+* Added option to hide label
+* Added option to hide field
+* Fixed button alignment
+* Code linted
 
 = 0.2.9 =
 * Fix button alignment

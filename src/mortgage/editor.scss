@@ -1,0 +1,11 @@
+.wp-block-mortgage-form {
+
+	.wp-block-mortgage-input,
+	.wp-block-mortgage-select {
+
+		&.hide {
+			display: block !important;
+		}
+	}
+
+}

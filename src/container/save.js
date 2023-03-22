@@ -1,18 +1,8 @@
-import classnames from 'classnames';
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	RichText,
-} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-export default function save( { attributes } ) {
+export default function save() {
 	const blockProps = useBlockProps.save();
-    const innerBlocksProps = useInnerBlocksProps.save();
+	const innerBlocksProps = useInnerBlocksProps.save();
 
-	return (
-		<div { ...blockProps }
-			{...innerBlocksProps}
-		>
-		</div>
-	);
+	return <div { ...blockProps } { ...innerBlocksProps }></div>;
 }

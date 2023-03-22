@@ -33,6 +33,11 @@
 			"selector": "input",
 			"attribute": "name"
 		},
+		"hideLabel": {
+			"type": "boolean",
+			"selector": "label.hide",
+			"default": false
+		},
 		"label": {
 			"type": "string",
 			"source": "html",

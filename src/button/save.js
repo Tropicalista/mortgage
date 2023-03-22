@@ -1,14 +1,12 @@
 import classnames from 'classnames';
 import {
 	useBlockProps,
-	RichText,
 	__experimentalGetBorderClassesAndStyles as getBorderClassesAndStyles,
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
-	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
 } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { text, alignment, type, style } = attributes;
+	const { text, alignment, style } = attributes;
 
 	const borderRadius = style?.border?.radius;
 	const borderProps = getBorderClassesAndStyles( attributes );
@@ -22,16 +20,16 @@ export default function save( { attributes } ) {
 
 	const colorProps = getColorClassesAndStyles( attributes );
 
-	const buttonClasses = classnames( colorProps.className, alignment, 'mortgage-btn' );
+	const buttonClasses = classnames(
+		colorProps.className,
+		alignment,
+		'mortgage-btn'
+	);
 
 	const blockProps = useBlockProps.save( {
 		className: buttonClasses,
-		style: colorProps.style
+		style: colorProps.style,
 	} );
 
-	return (
-		<button { ...blockProps }>
-			{ text }
-		</button>
-	);
+	return <button { ...blockProps }>{ text }</button>;
 }

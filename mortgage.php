@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mortgage
  * Description: A simple responsive mortgage calculator block with a clean flat design.
- * Version:     0.2.9
+ * Version:     0.3.0
  * Author:      Calcolo Rata Mutuo
  * Author URI:  https://www.calcoloratamutuo.net/
  * License:     GPL-2.0-or-later

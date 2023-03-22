@@ -13,6 +13,16 @@
 	            "remove": true
 	        }
 	    },
+		"hide": {
+			"type": "boolean",
+			"selector": "div.hide",
+			"default": false
+		},
+		"hideLabel": {
+			"type": "boolean",
+			"selector": "label.hide",
+			"default": false
+		},
 		"label": {
 			"type": "string",
 			"default": "Calculate"
