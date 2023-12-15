@@ -1,12 +1,11 @@
 import { pmt, ipmt } from 'financial';
+import { __ } from '@wordpress/i18n';
 
-const userLang = navigator.language || navigator.userLanguage;
+const userLang = window.navigator.language || window.navigator.userLanguage;
 const resultDiv = document.createElement( 'div' );
 const summaryDiv = document.createElement( 'div' );
 const tableDiv = document.createElement( 'div' );
 const table = document.createElement( 'table' );
-
-const { __ } = wp.i18n;
 
 export default class Calculator {
 	constructor( formEl ) {
@@ -64,7 +63,7 @@ export default class Calculator {
 		return summary;
 	}
 
-	generateTable( table, data ) {
+	generateTable( data ) {
 		for ( const element of data ) {
 			const row = table.insertRow();
 			if ( this.showSummary ) {
@@ -77,7 +76,7 @@ export default class Calculator {
 		}
 	}
 
-	generateTableHead( table, data ) {
+	generateTableHead( data ) {
 		const thead = table.createTHead();
 		const row = thead.insertRow();
 		for ( const key of data ) {
@@ -115,7 +114,7 @@ export default class Calculator {
 		cell.colSpan = 5;
 	}
 
-	mortgageTable( elm ) {
+	mortgageTable() {
 		const data = [];
 
 		const heads = [
@@ -153,24 +152,15 @@ export default class Calculator {
 
 		// reset table
 		table.innerHTML = '';
-		this.generateTableHead( table, heads );
-		this.generateTable( table, data );
+		this.generateTableHead( heads );
+		this.generateTable( data );
 	}
 
 	loanResponse( elm ) {
-		const parent = elm.parentNode;
 		if ( elm.closest( '.wp-block-columns' ) ) {
 			elm = elm.parentNode.parentNode;
 		}
 		this.result = this.payment();
-
-		const heads = [
-			'#',
-			__( 'Installment', 'mortgage' ),
-			__( 'Interest', 'mortgage' ),
-			__( 'Principal', 'mortgage' ),
-			__( 'Balance', 'mortgage' ),
-		];
 
 		resultDiv.className = 'wp-block-mortgage-result success';
 		resultDiv.innerHTML =
@@ -196,7 +186,6 @@ export default class Calculator {
 	}
 
 	durationResponse( elm ) {
-		const parent = elm.parentNode;
 		if ( elm.closest( '.wp-block-columns' ) ) {
 			elm = elm.parentNode.parentNode;
 		}
@@ -219,15 +208,12 @@ export default class Calculator {
 					this.payment() * this.frequency * y - this.amount
 				),
 				total: this.formatNumber( this.payment() * this.frequency * y ),
-				interests: this.formatNumber(
-					this.payment() * this.frequency * y - this.amount
-				),
 			} );
 		} );
 		// reset table
 		table.innerHTML = '';
-		this.generateTableHead( table, heads );
-		this.generateTable( table, data );
+		this.generateTableHead( heads );
+		this.generateTable( data );
 
 		resultDiv.className = 'wp-block-mortgage-table';
 
@@ -242,7 +228,6 @@ export default class Calculator {
 			elm.querySelector( '[name="increment"]' ).value / 100
 		);
 
-		const parent = elm.parentNode;
 		if ( elm.closest( '.wp-block-columns' ) ) {
 			elm = elm.parentNode.parentNode;
 		}
@@ -272,8 +257,8 @@ export default class Calculator {
 		// reset table
 		table.innerHTML = '';
 
-		this.generateTableHead( table, heads );
-		this.generateTable( table, data );
+		this.generateTableHead( heads );
+		this.generateTable( data );
 
 		resultDiv.className = 'wp-block-mortgage-table';
 

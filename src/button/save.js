@@ -23,7 +23,8 @@ export default function save( { attributes } ) {
 	const buttonClasses = classnames(
 		colorProps.className,
 		alignment,
-		'mortgage-btn'
+		'mortgage-btn',
+		'wp-element-button'
 	);
 
 	const blockProps = useBlockProps.save( {

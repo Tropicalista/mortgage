@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Mortgage
  * Description: A simple responsive mortgage calculator block with a clean flat design.
- * Version:     0.3.0
+ * Version:     0.3.1
  * Author:      Calcolo Rata Mutuo
  * Author URI:  https://www.calcoloratamutuo.net/
  * License:     GPL-2.0-or-later
@@ -18,21 +18,9 @@
  *
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/applying-styles-with-stylesheets/
  */
-function mortgage_block_init()
-{
-    wp_register_script(
-        'mortgage-block-frontend',
-        plugins_url( 'build/frontend.js', __FILE__ ),
-        array( 'wp-i18n' ),
-    );
-
-    load_plugin_textdomain( 'mortgage', false, plugin_dir_path(__FILE__) . 'languages' );
-    wp_set_script_translations( 'mortgage-form-editor-script', 'mortgage', plugin_dir_path(__FILE__) . 'languages' );
-    wp_set_script_translations( 'mortgage-block-frontend', 'mortgage', plugin_dir_path( __FILE__ ) . 'languages' );
-
-    register_block_type_from_metadata(
-        __DIR__,
-    );
-
+function mortgage_block_init() {
+	register_block_type_from_metadata(
+		__DIR__,
+	);
 }
-add_action('init', 'mortgage_block_init');
+add_action( 'init', 'mortgage_block_init' );
