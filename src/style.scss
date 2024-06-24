@@ -1,0 +1,147 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mortgage-form {
+
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+
+	.wp-block-mortgage-input,
+	.wp-block-mortgage-select {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		&.hide {
+			display: none;
+		}
+	}
+
+	label.hide {
+		display: none;
+	}
+
+	input,
+	select,
+	button {
+		padding: 0.5em;
+		box-sizing: border-box;
+	}
+
+	input,
+	select {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	small {
+		width: 100%;
+	}
+
+	button {
+		display: block;
+		margin: 0;
+		width: 100%;
+
+		&.alignleft {
+			margin-right: auto;
+			margin-left: 0;
+			width: auto;
+		}
+
+		&.alignright {
+			margin-left: auto;
+			margin-right: 0;
+			width: auto;
+		}
+
+		&.aligncenter {
+			margin: auto;
+			width: auto;
+		}
+
+	}
+}
+
+.wp-block-mortgage-form.is-style-bolded {
+
+	label {
+		font-weight: bold;
+	}
+}
+
+.wp-block-mortgage-form.is-style-modern {
+
+	label {
+		font-weight: bold;
+	}
+
+	input,
+	select {
+		border: none;
+		border-bottom: 1px solid;
+		border-radius: 0;
+	}
+}
+
+.wp-block-mortgage-result,
+.wp-block-mortgage-summary {
+	padding: 1.25rem;
+	margin: 1rem 0;
+	border: 1px solid transparent;
+	display: none;
+
+	&.show {
+		display: block;
+	}
+
+	&.success {
+		background-color: #dff0d8;
+		border-color: #d0e9c6;
+		color: #3c763d;
+	}
+
+	&.error {
+		background-color: #fcf8e3;
+		border-color: #faf2cc;
+		color: #8a6d3b;
+	}
+
+	small {
+		margin: 0 5px;
+	}
+
+	p {
+		margin: 0;
+	}
+}
+
+.wp-block-mortgage-table {
+	order: 3;
+	width: 100%;
+	overflow-x: auto;
+	display: none;
+
+	&.show {
+		display: block;
+	}
+
+	small {
+		margin: 0 5px;
+	}
+
+	table {
+		width: 100% !important;
+	}
+
+	table td,
+	th {
+		text-align: center;
+	}
+}

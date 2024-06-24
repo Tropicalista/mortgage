@@ -1,10 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "mortgage/result",
-  "title": "Result",
-  "icon": "button",
+  "ancestor": [
+    "mortgage/form"
+  ],
+  "title": "Mortgage result",
+  "icon": "info",
   "textdomain": "mortgage",
+  "usesContext": [
+    "mortgage/currency"
+  ],
   "attributes": {
     "lock": {
       "type": "object",
@@ -17,37 +23,47 @@
       "type": "string",
       "default": "Calculate"
     },
+    "resume": {
+      "type": "boolean"
+    },
     "style": {
       "type": "object",
       "default": {
         "color": {
           "background": "#dff0d8",
           "text": "#3c763d"
-        },
-        "border": {
-          "style": "solid",
-          "width": "1px",
-          "color": "green"
         }
       }
     }
   },
   "supports": {
-    "multiple": false,
+    "html": false,
+    "lock": false,
     "reusable": false,
-    "className": true,
-    "__experimentalBorder": true,
     "color": {
       "background": true,
       "text": true,
       "gradients": true
     },
-    "lock": false,
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
     "spacing": {
       "padding": true,
       "__experimentalDefaultControls": {
         "padding": true
       }
     }
-  }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
 }

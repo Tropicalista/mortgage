@@ -1,0 +1,127 @@
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-mortgage-form {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+.wp-block-mortgage-form .wp-block-mortgage-input,
+.wp-block-mortgage-form .wp-block-mortgage-select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.wp-block-mortgage-form .wp-block-mortgage-input.hide,
+.wp-block-mortgage-form .wp-block-mortgage-select.hide {
+  display: none;
+}
+.wp-block-mortgage-form label.hide {
+  display: none;
+}
+.wp-block-mortgage-form input,
+.wp-block-mortgage-form select,
+.wp-block-mortgage-form button {
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+.wp-block-mortgage-form input,
+.wp-block-mortgage-form select {
+  width: 100%;
+  max-width: 100%;
+}
+.wp-block-mortgage-form small {
+  width: 100%;
+}
+.wp-block-mortgage-form button {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+.wp-block-mortgage-form button.alignleft {
+  margin-left: auto;
+  margin-right: 0;
+  width: auto;
+}
+.wp-block-mortgage-form button.alignright {
+  margin-right: auto;
+  margin-left: 0;
+  width: auto;
+}
+.wp-block-mortgage-form button.aligncenter {
+  margin: auto;
+  width: auto;
+}
+
+.wp-block-mortgage-form.is-style-bolded label {
+  font-weight: bold;
+}
+
+.wp-block-mortgage-form.is-style-modern label {
+  font-weight: bold;
+}
+.wp-block-mortgage-form.is-style-modern input,
+.wp-block-mortgage-form.is-style-modern select {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+}
+
+.wp-block-mortgage-result,
+.wp-block-mortgage-summary {
+  padding: 1.25rem;
+  margin: 1rem 0;
+  border: 1px solid transparent;
+  display: none;
+}
+.wp-block-mortgage-result.show,
+.wp-block-mortgage-summary.show {
+  display: block;
+}
+.wp-block-mortgage-result.success,
+.wp-block-mortgage-summary.success {
+  background-color: #dff0d8;
+  border-color: #d0e9c6;
+  color: #3c763d;
+}
+.wp-block-mortgage-result.error,
+.wp-block-mortgage-summary.error {
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+  color: #8a6d3b;
+}
+.wp-block-mortgage-result small,
+.wp-block-mortgage-summary small {
+  margin: 0 5px;
+}
+.wp-block-mortgage-result p,
+.wp-block-mortgage-summary p {
+  margin: 0;
+}
+
+.wp-block-mortgage-table {
+  order: 3;
+  width: 100%;
+  overflow-x: auto;
+  display: none;
+}
+.wp-block-mortgage-table.show {
+  display: block;
+}
+.wp-block-mortgage-table small {
+  margin: 0 5px;
+}
+.wp-block-mortgage-table table {
+  width: 100% !important;
+}
+.wp-block-mortgage-table table td,
+.wp-block-mortgage-table th {
+  text-align: center;
+}

@@ -12,6 +12,7 @@ import {
 	ToolbarGroup,
 	ToolbarButton,
 	SelectControl,
+	CheckboxControl,
 	PanelBody,
 } from '@wordpress/components';
 
@@ -38,6 +39,12 @@ export default function Edit( { attributes, setAttributes } ) {
 		className: fieldClassName,
 	} );
 
+	const changeOption = ( idx, val ) => {
+		const options = [ ...values ];
+		options[ idx ] = { ...options[ idx ], hidden: val };
+		setAttributes( { values: options } );
+	};
+
 	return (
 		<div { ...blockProps }>
 			<BlockControls>
@@ -58,18 +65,20 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { showHelp: ! showHelp } );
 						} }
 					/>
-					<ToolbarButton
-						label={ __( 'Hide field', 'mortgage' ) }
-						icon={ 'hidden' }
-						isPressed={ hide }
-						onClick={ () => {
-							setAttributes( { hide: ! hide } );
-						} }
-					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody title={ __( 'Options' ) } initialOpen={ true }>
+					{ values.map( ( opt, i ) => {
+						return (
+							<CheckboxControl
+								label={ opt.label }
+								checked={ ! opt.hidden }
+								onChange={ ( val ) => changeOption( i, ! val ) }
+								key={ i }
+							/>
+						);
+					} ) }
 					<SelectControl
 						label={ __( 'Default value', 'mortgage' ) }
 						onChange={ ( val ) => {
@@ -96,7 +105,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				onChange={ ( val ) => setAttributes( { defaultValue: val } ) }
 			>
 				{ values.map( ( i ) => (
-					<option key={ i.label } value={ i.value }>
+					<option
+						key={ i.label }
+						value={ i.value }
+						hidden={ i.hidden }
+					>
 						{ i.label }
 					</option>
 				) ) }

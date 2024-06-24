@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mortgage/form",
+  "version": "0.1.0",
+  "title": "Mortgage form",
+  "category": "widgets",
+  "icon": "media-interactive",
+  "description": "An interactive block with the Interactivity API",
+  "providesContext": {
+    "mortgage/currency": "currency",
+    "mortgage/type": "type"
+  },
+  "supports": {
+    "interactivity": true
+  },
+  "attributes": {
+    "currency": {
+      "type": "string",
+      "default": "$"
+    },
+    "showTable": {
+      "type": "boolean",
+      "default": false
+    },
+    "yearSummary": {
+      "type": "boolean",
+      "default": false
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "loan",
+        "rates",
+        "duration"
+      ]
+    }
+  },
+  "styles": [
+    {
+      "name": "regular",
+      "label": "Default",
+      "isDefault": true
+    },
+    {
+      "name": "bolded",
+      "label": "Bolded label"
+    },
+    {
+      "name": "modern",
+      "label": "Modern"
+    }
+  ],
+  "textdomain": "mortgage",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScriptModule": "file:./view.js"
+}

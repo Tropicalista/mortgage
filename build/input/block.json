@@ -52,6 +52,12 @@
       "selector": "input",
       "attribute": "placeholder"
     },
+    "required": {
+      "type": "string",
+      "source": "attribute",
+      "selector": "input",
+      "attribute": "required"
+    },
     "value": {
       "type": "string",
       "source": "attribute",
@@ -95,7 +101,9 @@
   "supports": {
     "multiple": true,
     "reusable": false,
+    "inserter": false,
     "className": true,
     "lock": false
-  }
+  },
+  "editorScript": "file:./index.js"
 }

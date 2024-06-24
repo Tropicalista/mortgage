@@ -48,9 +48,9 @@
 		}
 	},
 	"supports": {
-		"multiple": false,
 		"reusable": false,
 		"className": true,
 		"lock": false
-	}
+	},
+	"editorScript": "file:./index.js"
 }

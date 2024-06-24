@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Formello">
-	<description>Rules for Formello</description>
+<ruleset name="mortgage">
+	<description>Rules for mortgage</description>
 
     <arg name="extensions" value="php" />
 
@@ -36,14 +36,14 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" value="formello"/>
+			<property name="text_domain" value="mortgage"/>
 		</properties>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="formello"/>
+				<element value="mortgage"/>
 			</property>
 		</properties>
 	</rule>

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mortgage/table",
+	"title": "Mortgage table result",
+	"ancestor": ["mortgage/form"],
+	"icon": "editor-table",
+	"textdomain": "mortgage",
+    "usesContext": ["mortgage/type"],
+	"attributes": {
+		"summary": {
+			"type": "boolean"
+		}
+	},
+	"supports": {
+		"html": false,
+		"lock": false,
+		"inserter": false,
+		"reusable": false,
+		"spacing": {
+			"margin": true,
+			"__experimentalDefaultControls": {
+				"margin": true
+			}
+		}
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

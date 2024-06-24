@@ -2,24 +2,21 @@ import { __ } from '@wordpress/i18n';
 
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-const allowedFormats = [ 'core/bold', 'core/italic', 'core/link' ];
-
-export default function Edit( { attributes, setAttributes } ) {
-	const { text } = attributes;
+export default function Edit( { attributes, setAttributes, context } ) {
+	const { text, resume } = attributes;
 
 	const blockProps = useBlockProps();
 
 	return (
 		<div { ...blockProps }>
 			<RichText
-				tagName="p"
+				tagName="span"
+				allowedFormats={ [] }
 				value={ text }
-				onChange={ ( val ) => {
-					setAttributes( { text: val } );
-				} }
-				allowedFormats={ allowedFormats }
-				placeholder={ __( 'Installment', 'mortgage' ) }
+				onChange={ ( val ) => setAttributes( { text: val } ) }
+				placeholder={ __( 'Enter text…', 'mortgage' ) }
 			/>
+			<span> 100 { context[ 'mortgage/currency' ] }</span>
 		</div>
 	);
 }

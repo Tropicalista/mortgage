@@ -70,14 +70,6 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { showHelp: ! showHelp } );
 						} }
 					/>
-					<ToolbarButton
-						label={ __( 'Hide field', 'mortgage' ) }
-						icon={ 'hidden' }
-						isPressed={ hide }
-						onClick={ () => {
-							setAttributes( { hide: ! hide } );
-						} }
-					/>
 				</ToolbarGroup>
 			</BlockControls>
 			<InspectorControls>

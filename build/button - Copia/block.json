@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "mortgage/button",
+  "ancestor": [
+    "mortgage/form"
+  ],
+  "title": "Button",
+  "icon": "button",
+  "textdomain": "mortgage",
+  "attributes": {
+    "lock": {
+      "type": "object",
+      "default": {
+        "move": true,
+        "remove": true
+      }
+    },
+    "text": {
+      "type": "string",
+      "default": "Calculate"
+    },
+    "alignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "color": {
+          "background": "#000000",
+          "text": "#ffffff"
+        }
+      }
+    }
+  },
+  "supports": {
+    "html": false,
+    "lock": false,
+    "reusable": false,
+    "align": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "gradients": true
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "padding": true
+      }
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

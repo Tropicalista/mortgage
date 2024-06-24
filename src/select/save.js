@@ -30,6 +30,7 @@ export default function save( { attributes } ) {
 						key={ i.label }
 						value={ i.value }
 						selected={ defaultValue === i.value ? true : false }
+						hidden={ i.hidden || undefined }
 					>
 						{ i.label }
 					</option>

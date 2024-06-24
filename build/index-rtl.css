@@ -1,0 +1,13 @@
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.wp-block-mortgage-form .wp-block-mortgage-input.hide,
+.wp-block-mortgage-form .wp-block-mortgage-select.hide {
+  display: block !important;
+}
+
+.wp-block-mortgage-result,
+.wp-block-mortgage-table,
+.wp-block-mortgage-summary {
+  display: block;
+}
