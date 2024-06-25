@@ -206,7 +206,7 @@ const variations = [
 		attributes: {
 			type: 'loan',
 		},
-		scope: [ 'block' ],
+		scope: [ 'block', 'inserter' ],
 		isDefault: true,
 	},
 	{
